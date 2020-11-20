@@ -1,0 +1,23 @@
+{
+  "timeZone": "Asia/Tokyo",
+  "dependencies": {
+    "libraries": [{
+      "userSymbol": "Underscore",
+      "libraryId": "1PcEHcGVC1njZd8SfXtmgQk19djwVd2GrrW1gd7U5hNk033tzi6IUvIAV",
+      "version": "2"
+    }, {
+      "userSymbol": "OAuth2",
+      "libraryId": "1B7FSrk5Zi6L1rSxxTDgDEUsPzlukDsi4KGuTMorsTQHhGBzBkMun4iDF",
+      "version": "38"
+    }]
+  },
+  "webapp": {
+    "access": "ANYONE",
+    "executeAs": "USER_ACCESSING"
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "executionApi": {
+    "access": "DOMAIN"
+  },
+  "runtimeVersion": "V8"
+}

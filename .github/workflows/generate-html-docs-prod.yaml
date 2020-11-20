@@ -1,0 +1,82 @@
+name: マニュアル作成（本番環境）
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron:  '0 15 * * *'
+jobs:
+  generate-html-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.3
+        with:
+          fetch-depth: 0
+          repository: ${{ github.repository }}
+          ref: master
+          token: ${{ secrets.JUNSH_PAT }}
+      - name: Checkout
+        uses: actions/checkout@v2.3.3
+        with:
+          fetch-depth: 0
+          repository: linefukuoka/line-smart-city-docs
+          ref: main
+          token: ${{ secrets.JUNSH_PAT }}
+          path: lfk
+      - name: Install rclone
+        run: |
+          curl https://rclone.org/install.sh | sudo bash
+      - name: Config rclone
+        run: |
+          chmod +x ./rclone/decrypt_config.sh
+          mkdir -p ~/.config/rclone/
+          ./rclone/decrypt_config.sh
+        env:
+          DECRYPT_PASSPHRASE: ${{ secrets.RCLONE_PASS }}
+      - name: Download google drive file
+        run: |
+          rclone --drive-shared-with-me copy gdrive:/docs ./tmp
+      - name: Generate index.md
+        run: |
+          cd tmp
+          rm テンプレート.md
+          mkdir docs
+          cat HOME_*.md | sed 's/## HOME$//g'| sed -e '1i ## HOME' > docs/temp_HOME.md
+          cat DISTRIBUTION_*.md | sed 's/## セグメント配信//g'| sed -e '1i ## セグメント配信' > docs/temp_DISTRIBUTION.md
+          cat SURVEY_*.md        | sed 's/## 帳票作成//g'| sed -e '1i ## 帳票作成' > docs/temp_SURVEY.md
+          cat SCENARIO_*.md        | sed 's/## シナリオ設定//g'| sed -e '1i ## シナリオ設定' > docs/temp_SCENARIO.md
+          cat LOG_*.md          | sed 's/## ログ//g'| sed -e '1i ## ログ' > docs/temp_LOG.md
+          cat SYSTEM_*.md        | sed 's/## システム設定//g'| sed -e '1i ## システム設定' > docs/temp_SYSTEM.md
+          cat USERS_*.md        | sed 's/## ユーザ設定//g'| sed -e '1i ## ユーザ設定' > docs/temp_USERS.md
+          cat AWS_*.md          | sed 's/## AWS設定//g'| sed -e '1i ## AWS設定' > docs/temp_AWS.md
+          cat docs/temp_HOME.md docs/temp_DISTRIBUTION.md docs/temp_SURVEY.md docs/temp_SCENARIO.md docs/temp_LOG.md docs/temp_SYSTEM.md docs/temp_USERS.md docs/temp_AWS.md > index.md
+          rm -r docs
+      - name: get pandoc
+        run: |
+          wget https://github.com/jgm/pandoc/releases/download/2.9/pandoc-2.9-1-amd64.deb
+          sudo dpkg -i pandoc-2.9-1-amd64.deb
+          rm pandoc-2.9-1-amd64.deb
+      - name: make html
+        run: |
+          pandoc -s --toc --template=./docs/template/bootstrap_menu.html -c css/custom-style.css tmp/index.md -o docs/index.html --metadata title="LINE Smart City" --variable=logo:"img/GovTech_top.png"
+          cp -r tmp/images docs/
+          rm -rf tmp
+      - name: Copy file to lfk
+        run: |
+          cd docs
+          yes | cp -r css ../lfk/docs/
+          yes | cp -r img ../lfk/docs/
+          yes | cp -r images ../lfk/docs/
+          yes | cp -r js ../lfk/docs/
+          yes | cp -r template ../lfk/docs/
+          yes | cp  index.html ../lfk/docs/
+      - name: Pushes to another repository
+        id: push_directory
+        uses: cpina/github-action-push-to-another-repository@master
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.JUNSH_PAT }}
+        with:
+          source-directory: 'lfk'
+          destination-github-username: 'linefukuoka'
+          destination-repository-name: 'line-smart-city-docs'
+          user-email: linh.nguyen@playnext-lab.co.jp
+          target-branch: main

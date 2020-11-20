@@ -1,0 +1,13 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+
+[*.{md,py}]
+indent_style = space
+indent_size = 4
+
+[*.{xml,html,css,sh,json,yaml,js,ts}]
+indent_style = space
+indent_size = 2

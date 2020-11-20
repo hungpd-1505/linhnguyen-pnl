@@ -1,0 +1,50 @@
+name: FAQページ更新
+on: 
+  workflow_dispatch:
+#  schedule:
+#    - cron:  '*/5 * * * *'
+jobs:
+  get-new-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.3
+        with:
+          fetch-depth: 0
+          repository: ${{ github.repository }}
+          ref: master
+          token: ${{ secrets.JUNSH_PAT }}
+      - name: Set up nodejs
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - name: Set up clasp
+        run: |
+          npm install -g @google/clasp
+      - name: Decrypt cred
+        run: |
+          chmod +x ./clasp/decrypt_secret.sh
+          ./clasp/decrypt_secret.sh
+        env:
+          DECRYPT_PASSPHRASE: ${{ secrets.CLASP_CRED }}
+      - name: Run clasp function to generate new faq data
+        run: |
+          cd clasp
+          cp ~/.clasprc.json ./.clasprc.json
+          clasp run exec
+          rm ./.clasprc.json
+      - run: wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=17hMwaSWRMRADNGn3DGQOOLJpZJUlMOY9' -O docs/js/data.js
+      - name: Check if data has changed
+        id: if_changed
+        run: if [[ `git status --porcelain` ]]; then echo "::set-output name=result::true"; else echo "::set-output name=result::false"; fi
+      - name: Push if data.js has changed
+        if: steps.if_changed.outputs.result == 'true'
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git add -A
+          git commit -m "update data at $(date +"%Y%m%d_%H%M")"
+          git push origin master
+      - name: Else gracefully stop
+        if: steps.if_changed.outputs.result == 'false'
+        run: echo "Nothing changed, job stops gracefully."

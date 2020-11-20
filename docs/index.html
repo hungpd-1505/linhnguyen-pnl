@@ -1,0 +1,2045 @@
+<!doctype html>
+<html >
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--[if lt IE 9]>
+                <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+
+    <link rel="stylesheet" type="text/css" href="template/template.css" />
+
+    <link href="https://vjs.zencdn.net/5.4.4/video-js.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.cookie.js'></script>
+    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.hoverIntent.minified.js'></script>
+    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.dcjqaccordion.2.7.min.js'></script>
+
+    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/blue.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/graphite.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/grey.css" rel="stylesheet" type="text/css" />
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+    <script src="template/manual-main-script.js"></script>
+  
+    <script src="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/jquery.sticky-kit.js"></script>
+    <meta name="generator" content="pandoc" />
+  <title>LINE Smart City</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="css/custom-style.css" />
+</head>
+<body>
+
+    
+    <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <div class="navbar-container">
+        <a href="/">
+          <img src="img/GovTech_top.png" alt="LINE Smart City" class="logo">
+        </a>
+        <div class="navbar pull-right">
+          <div class="search-box"><input id="search_input" aria-label="Search" autocomplete="off" spellcheck="false" value="" class=""
+              placeholder="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div>
+            <div id="TOC" class="span3">
+        <div class="toc">
+
+        <ul>
+        <li><a href="#home">HOME</a>
+        <ul>
+        <li><a href="#検索基本">検索(基本)</a></li>
+        <li><a href="#検索日付">検索(日付)</a></li>
+        <li><a href="#入力情報修正">入力情報修正</a></li>
+        <li><a href="#csv出力">CSV出力</a></li>
+        </ul></li>
+        <li><a href="#セグメント配信">セグメント配信</a>
+        <ul>
+        <li><a href="#配信一覧の表示-test">配信一覧の表示-test</a></li>
+        <li><a href="#今すぐ配信">今すぐ配信</a></li>
+        <li><a href="#回のみ配信">1回のみ配信</a></li>
+        <li><a href="#繰り返し配信">繰り返し配信</a></li>
+        <li><a href="#手動配信複写">手動配信(複写)</a></li>
+        <li><a href="#外部配信設定一覧の表示">外部配信設定一覧の表示</a></li>
+        <li><a href="#外部配信設定新規作成">外部配信設定(新規作成)</a></li>
+        <li><a href="#受信設定画面作成">受信設定画面作成</a></li>
+        <li><a href="#外部配信設定抽出条件">外部配信設定(抽出条件)</a></li>
+        <li><a href="#外部配信設定本文変更条件">外部配信設定(本文変更条件)</a></li>
+        </ul></li>
+        <li><a href="#帳票作成">帳票作成</a>
+        <ul>
+        <li><a href="#帳票一覧">帳票一覧 <!-- 目次サブメニュー --></a></li>
+        <li><a href="#新しい帳票を作成">新しい帳票を作成<!-- 目次サブメニュー --></a></li>
+        <li><a href="#新しい帳票を作成配信設定">新しい帳票を作成(配信設定) <!-- 目次サブメニュー --></a></li>
+        <li><a href="#新しい帳票を作成ご連絡フォーム">新しい帳票を作成(ご連絡フォーム)<!-- 目次サブメニュー --></a></li>
+        <li><a href="#新しい帳票を作成調査">新しい帳票を作成(調査) <!-- 目次サブメニュー --></a></li>
+        <li><a href="#編集">編集 <!-- 目次サブメニュー --></a></li>
+        <li><a href="#liffwebを開く">LIFF・webを開く<!-- 目次サブメニュー --></a></li>
+        </ul></li>
+        <li><a href="#シナリオ設定">シナリオ設定</a>
+        <ul>
+        <li><a href="#top画面">TOP画面 <!-- 目次サブメニュー --></a></li>
+        <li><a href="#編集ゴミ分別">編集(ゴミ分別) <!-- 目次サブメニュー --></a></li>
+        <li><a href="#編集ゴミ出し">編集(ゴミ出し) <!-- 目次サブメニュー --></a></li>
+        <li><a href="#編集損害報告">編集(損害報告) <!-- 目次サブメニュー --></a></li>
+        <li><a href="#編集関連情報">編集(関連情報) <!-- 目次サブメニュー --></a></li>
+        <li><a href="#編集リンク集">編集(リンク集)<!-- 目次サブメニュー --></a></li>
+        <li><a href="#編集ハザードマップ">編集(ハザードマップ)<!-- 目次サブメニュー --></a></li>
+        <li><a href="#編集トークを利用する">編集(トークを利用する)<!-- 目次サブメニュー --></a></li>
+        <li><a href="#編集複合メッセージを追加">編集(複合メッセージを追加)<!-- 目次サブメニュー --></a></li>
+        </ul></li>
+        <li><a href="#ログ">ログ</a>
+        <ul>
+        <li><a href="#line友だち数情報">LINE友だち数情報 <!-- 目次サブメニュー --></a></li>
+        <li><a href="#line友だち属性1">LINE友だち属性1 <!-- 目次サブメニュー --></a></li>
+        <li><a href="#line友だち属性2">LINE友だち属性2<!-- 目次サブメニュー --></a></li>
+        <li><a href="#リッチメニュー">リッチメニュー <!-- 目次サブメニュー --></a></li>
+        <li><a href="#セグメント">セグメント <!-- 目次サブメニュー --></a></li>
+        <li><a href="#帳票liff">帳票・LIFF <!-- 目次サブメニュー --></a></li>
+        </ul></li>
+        <li><a href="#システム設定">システム設定</a>
+        <ul>
+        <li><a href="#ロゴ画像">ロゴ画像 <!-- 目次サブメニュー --></a></li>
+        <li><a href="#メニュースタイル">メニュースタイル <!-- 目次サブメニュー --></a></li>
+        <li><a href="#テナント名">テナント名 <!-- 目次サブメニュー --></a></li>
+        <li><a href="#テーマカラー">テーマカラー <!-- 目次サブメニュー --></a></li>
+        <li><a href="#line設定">LINE設定 <!-- 目次サブメニュー --></a></li>
+        <li><a href="#メール設定">メール設定<!-- 目次サブメニュー --></a></li>
+        </ul></li>
+        <li><a href="#ユーザ設定">ユーザ設定</a>
+        <ul>
+        <li><a href="#一覧とポリシー設定">一覧とポリシー設定 <!-- 目次サブメニュー --></a></li>
+        <li><a href="#ユーザ新規作成">ユーザ新規作成 <!-- 目次サブメニュー --></a></li>
+        <li><a href="#ユーザ情報変更-パスワード権限">ユーザ情報変更 (パスワード・権限)<!-- 目次サブメニュー --></a></li>
+        <li><a href="#ユーザ削除">ユーザ削除 <!-- 目次サブメニュー --></a></li>
+        <li><a href="#グループ編集">グループ編集 <!-- 目次サブメニュー --></a></li>
+        </ul></li>
+        <li><a href="#aws設定">AWS設定</a>
+        <ul>
+        <li><a href="#dns_domain_liff_certificate_id-の設定">DNS_DOMAIN_LIFF_CERTIFICATE_ID の設定</a></li>
+        <li><a href="#dns_domain_liff_hosted_zone_id-の設定">DNS_DOMAIN_LIFF_HOSTED_ZONE_ID の設定</a></li>
+        <li><a href="#cognitoユーザプールliffの確認">Cognitoユーザプール(LIFF)の確認</a></li>
+        <li><a href="#cognitoユーザプール管理画面">Cognitoユーザプール(管理画面)</a></li>
+        <li><a href="#ip-アドレス制限">IP アドレス制限</a></li>
+        <li><a href="#セグメント配信の受信メールアドレス設定">セグメント配信の受信メールアドレス設定</a></li>
+        </ul></li>
+        </ul>
+
+        </div>
+      </div>
+            <div id="search_result" class="span9 search-result">
+        <h2>検索結果</h2>
+        <p>検索結果がありません。</p>
+      </div>
+      <div class="span9 content">
+            <h2 id="home">HOME</h2>
+            <h3 id="検索基本">検索(基本)</h3>
+            <p>メインメニュー「HOME」から、アンケートや申請などの帳票を通じて登録されたユーザのデータを検索し内容を確認することができます。</p>
+            <ol type="1">
+            <li>検索したい帳票をプルダウンから選択すると、対象となるデータの一覧が表示されます。 <img src='./images/home/HOME_search-base_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --> <br></li>
+            </ol>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="2" type="1">
+            <li>「検索条件」をクリックすると帳票に登録された項目の一覧が表示されます。 <img src='./images/home/HOME_search-base_2.png' style='border:solid 2px lightgray' /> <!-- 画像 --> <br>
+            <div style="page-break-before:always">
+
+            </div></li>
+            <li>データの絞り込みを行う場合、絞り込みたい項目を選択。「この条件で検索」をクリックします。 <img src='./images/home/HOME_search-base_3.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>選択した条件にマッチするデータが表示されます。 <img src='./images/home/HOME_search-base_4.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbMTc3ODc0MDAzOSwtMzEzNzE3ODc5LC03MT
+            M1NzIxNzBdfQ==
+            -->
+            <h3 id="検索日付">検索(日付)</h3>
+            <p>メインメニュー「HOME」から、アンケートや申請などの帳票を通じて登録されたユーザのデータを、登録・更新された期間をもとに抽出することができます。</p>
+            <ol type="1">
+            <li>検索したい帳票をプルダウンから選択すると、対象となるデータの一覧が表示されます。 <img src='./images/home/HOME_search-date_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --> <br>
+            <div style="page-break-before:always">
+
+            </div></li>
+            <li>「日付」をクリックすると、絞り込みを行う対象期間を指定できるフォームが表示されます。 <img src='./images/home/HOME_search-date_2.png' style='border:solid 2px lightgray' /> <!-- 画像 --> <br>
+            <div style="page-break-before:always">
+
+            </div></li>
+            <li>絞り込みたい開始日と終了日を指定し、「この条件で検索」をクリックします。 <img src='./images/home/HOME_search-date_3.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>指定した条件にマッチするデータが表示されます。 <img src='./images/home/HOME_search-date_4.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbMTc3ODc0MDAzOSwtMzEzNzE3ODc5LC03MT
+            M1NzIxNzBdfQ==
+            -->
+            <h3 id="入力情報修正">入力情報修正</h3>
+            <p>アンケートや申請などの帳票を通じて登録されたユーザの、データ内容の修正やステータス（未対応・処理中・処理済み・完了）の設定・変更を行います。</p>
+            <ol type="1">
+            <li>修正したいデータを検索して表示します。対象となるデータが見つかったら、クリックします。 <img src='./images/home/HOME_inputupdate_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --> <br>
+            <div style="page-break-before:always">
+
+            </div></li>
+            <li>データの内容が表示されます。必要な設定項目や入力内容を変更できます。 <img src='./images/home/HOME_inputupdate_2.png' style='border:solid 2px lightgray' /> <!-- 画像 --> <br>
+            <div style="page-break-before:always">
+
+            </div></li>
+            <li>データのステータスを設定・変更することができます。 <img src='./images/home/HOME_inputupdate_3.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>「保存」をクリックすると、設定・変更した内容が更新されます。 <img src='./images/home/HOME_inputupdate_4.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbMTc3ODc0MDAzOSwtMzEzNzE3ODc5LC03MT
+            M1NzIxNzBdfQ==
+            -->
+            <h3 id="csv出力">CSV出力</h3>
+            <p>アンケートや申請などの帳票を通じて登録されたユーザのデータを、CSV形式のデータとしてエクスポート（出力）します。</p>
+            <ol type="1">
+            <li>出力対象の帳票とデータを表示します。 <img src='./images/home/HOME_csv_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --> <br>
+            <div style="page-break-before:always">
+
+            </div></li>
+            <li>出力する内容を絞り込む場合は「検索条件」や「日付」から抽出条件を指定し、「この条件で検索」をクリックしてデータを絞り込みます。 <img src='./images/home/HOME_csv_2.png' style='border:solid 2px lightgray' /> <!-- 画像 --> <br>
+            <div style="page-break-before:always">
+
+            </div></li>
+            <li>表示されたデータの最下部にある「CSV出力」をクリックし、データをダウンロードします。 <img src='./images/home/HOME_csv_3.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>ダウンロードされたデータは、エクセルやテキストエディタなどのアプリケーションで閲覧や編集することができます。 <img src='./images/home/HOME_csv_4.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbMTc3ODc0MDAzOSwtMzEzNzE3ODc5LC03MT
+            M1NzIxNzBdfQ==
+            -->
+            <h2 id="セグメント配信">セグメント配信</h2>
+            <h3 id="配信一覧の表示-test">配信一覧の表示-test</h3>
+            <p>配信の表示切替を説明します。</p>
+            <ol type="1">
+            <li><p>配信の状態を一覧で確認できます。</p>
+            <p><img src='./images/distribution/DISTRIBUTION_list_1.png' style='border:solid 2px lightgray' /></p></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="2" type="1">
+            <li><p>配信のステータス毎に表示対象を変更できます。</p>
+            <ul>
+            <li>「予約」を選択すると「一回のみ配信」が設定された配信を表示します。</li>
+            <li>「繰り返し予約」を選択すると繰り返し配信を設定した配信を表示します。</li>
+            <li>「下書き」を選択すると下書き状態の配信を表示します</li>
+            </ul>
+            <p><img src='./images/distribution/DISTRIBUTION_list_2.png' style='border:solid 2px lightgray' /></p></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="2" type="1">
+            <li><p>配信のステータス毎に表示対象を変更できます。</p>
+            <ul>
+            <li>「予約」を選択すると「一回のみ配信」が設定された配信を表示します。</li>
+            <li>「繰り返し予約」を選択すると繰り返し配信を設定した配信を表示します。</li>
+            <li>「下書き」を選択すると下書き状態の配信を表示します</li>
+            </ul>
+            <p><img src='./images/distribution/DISTRIBUTION_list_2.png' style='border:solid 2px lightgray' /></p></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li><p>配信ステータスを選択して配信対象を選択できます。</p>
+            <ul>
+            <li><p>ステータス」に応じた配信対象を表示できます。</p>
+            <p><img src='./images/distribution/DISTRIBUTION_list_4.png' style='border:solid 2px lightgray' /></p></li>
+            </ul></li>
+            </ol>
+            <p><br> 4. 配信ステータスを選択して配信対象を選択できます。</p>
+            <pre><code>- 「ステータス」に応じた配信対象を表示できます。
+
+            &lt;img src=&#39;./images/distribution/DISTRIBUTION_list_4.png&#39; style=&#39;border:solid 2px lightgray&#39; /&gt;</code></pre>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTExODIxMzk4MiwxNzU5NTc5ODI4LDIwMT
+            A3Mzc4NDUsMjMwMzE1NzQxXX0=
+            -->
+            <h3 id="今すぐ配信">今すぐ配信</h3>
+            <p>手動で直ちに配信する方法を説明します。</p>
+            <ol type="1">
+            <li>メニュー「セグメント配信」をクリックしてください。 <img src='./images/distribution/DISTRIBUTION_manual-now_1.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="2" type="1">
+            <li>メニュー「配信一覧」＞「新規作成」の順でクリックしてください。 <img src='./images/distribution/DISTRIBUTION_manual-now_2.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li><p>配信名、配信先、配信日時、配信内容を記入・選択してください。</p>
+            <ul>
+            <li>配信先で「絞り込み」を選択した場合は帳票を選択し、配信対象を絞り込んでください。</li>
+            <li>配信日時で「今すぐ配信」を選択してください。</li>
+            <li>右下のプレビューボタンをクリックすることで送信プレビューを確認できます。 <img src='./images/distribution/DISTRIBUTION_manual-now_3.png' style='border:solid 2px lightgray' /></li>
+            </ul></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>画面下部の「配信」をクリックすることにより直ちに配信されます。 <img src='./images/distribution/DISTRIBUTION_manual-now_4.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbMTUzNDgzNzgyOCwtNTIwMTkyMzk4LC0xND
+            cwOTgwMTI4LDI3NTY4MTU0MSwtMTE4NTI4NzY2MCw0MzczMDQx
+            OTUsLTMwMTI0MjM4NSwtNzU0MTYwODM2XX0=
+            -->
+            <h3 id="回のみ配信">1回のみ配信</h3>
+            <p>手動で1回のみ配信する方法を説明します。</p>
+            <ol type="1">
+            <li>メニュー「セグメント配信」をクリックしてください。 <img src='./images/distribution/DISTRIBUTION_manual-onetime_1.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="2" type="1">
+            <li>メニュー「配信一覧」＞「新規作成」の順でクリックしてください。 <img src='./images/distribution/DISTRIBUTION_manual-onetime_2.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li><p>配信名、配信先、配信日時、配信内容を記入・選択してください。</p>
+            <ul>
+            <li>配信先で「絞り込み」を選択した場合は帳票を選択し、配信対象を絞り込んでください。</li>
+            <li>配信日時で「一回のみ配信」を選択し、「起点日時」を設定してください。</li>
+            <li>右下のプレビューボタンをクリックすることで送信プレビューを確認できます。 <img src='./images/distribution/DISTRIBUTION_manual-onetime_3.png' style='border:solid 2px lightgray' /></li>
+            </ul></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>画面下部の「配信」をクリックすることにり配信設定されます。 <img src='./images/distribution/DISTRIBUTION_manual-onetime_4.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbNzcyNTEyNTQxLC0xODEzNDAzMTg0LC01Mj
+            AxOTIzOTgsLTE0NzA5ODAxMjgsMjc1NjgxNTQxLC0xMTg1Mjg3
+            NjYwLDQzNzMwNDE5NSwtMzAxMjQyMzg1LC03NTQxNjA4MzZdfQ
+            ==
+            -->
+            <h3 id="繰り返し配信">繰り返し配信</h3>
+            <p>繰り返し配信する方法を説明します。</p>
+            <ol type="1">
+            <li>メニュー「セグメント配信」をクリックしてください。 <img src='./images/distribution/DISTRIBUTION_manual-repeat_1.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="2" type="1">
+            <li>メニュー「配信一覧」＞「新規作成」の順でクリックしてください。 <img src='./images/distribution/DISTRIBUTION_manual-repeat_2.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li><p>配信名、配信先、配信日時、配信内容を記入・選択してください。</p>
+            <ul>
+            <li>配信先で「絞り込み」を選択した場合は帳票を選択し、配信対象を絞り込んでください。</li>
+            <li>配信日時の一番下を選択し、「開始日、終了日、時間、期間」を設定してください。</li>
+            <li>右下のプレビューボタンをクリックすることで送信プレビューを確認できます。 <img src='./images/distribution/DISTRIBUTION_manual-repeat_3.png' style='border:solid 2px lightgray' /></li>
+            </ul></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>画面下部の「配信」をクリックすることにより配信設定されます。 <img src='./images/distribution/DISTRIBUTION_manual-repeat_4.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTE5NTAyOTI4MTMsLTE4MTM0MDMxODQsLT
+            UyMDE5MjM5OCwtMTQ3MDk4MDEyOCwyNzU2ODE1NDEsLTExODUy
+            ODc2NjAsNDM3MzA0MTk1LC0zMDEyNDIzODUsLTc1NDE2MDgzNl
+            19
+            -->
+            <h3 id="手動配信複写">手動配信(複写)</h3>
+            <p>配信内容を複写する方法を説明します。</p>
+            <ol type="1">
+            <li>複写したい配信内容を配信一覧から検索してください。 <img src='./images/distribution/DISTRIBUTION_manual-copy_1.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="2" type="1">
+            <li>複写したい配信内容の「配信ID」クリックしてください。 <img src='./images/distribution/DISTRIBUTION_manual-copy_2.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li><p>「複写して新規作成」をクリックしてください。</p>
+            <p><img src='./images/distribution/DISTRIBUTION_manual-copy_3.png' style='border:solid 2px lightgray' /></p></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>配信内容設定後、画面下部の「配信」をクリックすることにより配信設定されます。 <img src='./images/distribution/DISTRIBUTION_manual-copy_4.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbMTI1MDUxMjE1MSwtMTYwMjMwNTcwOSwtND
+            Q3NTQ4MjYyLC0xODEzNDAzMTg0LC01MjAxOTIzOTgsLTE0NzA5
+            ODAxMjgsMjc1NjgxNTQxLC0xMTg1Mjg3NjYwLDQzNzMwNDE5NS
+            wtMzAxMjQyMzg1LC03NTQxNjA4MzZdfQ==
+            -->
+            <h3 id="外部配信設定一覧の表示">外部配信設定一覧の表示</h3>
+            <p>外部配信設定の表示切替を説明します。</p>
+            <ol type="1">
+            <li>「セグメント配信」を選択してください。 <img src='./images/distribution/DISTRIBUTION_manual-list_1.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="2" type="1">
+            <li>「外部配信設定」選択してください。 <img src='./images/distribution/DISTRIBUTION_manual-list_2.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li><p>配信名、帳票を選択して外部配信設定対象を変更できます。</p>
+            <ul>
+            <li><p>配信名をプルダウンメニューで選択できます。</p></li>
+            <li><p>帳票をプルダウンメニューで選択できます。</p>
+            <p><img src='./images/distribution/DISTRIBUTION_manual-list_3.png' style='border:solid 2px lightgray' /></p></li>
+            </ul></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li><p>外部配信設定ステータスを選択して外部配信設定対象を選択できます。</p>
+            <ul>
+            <li><p>「ステータス」に応じた外部配信設定対象を表示できます。</p>
+            <p><img src='./images/distribution/DISTRIBUTION_manual-list_4.png' style='border:solid 2px lightgray' /></p></li>
+            </ul></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTQ0OTM3ODMzNSwtMzUwMTM5MzAwLDU0Mj
+            I1OTA5LDE3NTk1Nzk4MjgsMjAxMDczNzg0NSwyMzAzMTU3NDFd
+            fQ==
+            -->
+            <h3 id="外部配信設定新規作成">外部配信設定(新規作成)</h3>
+            <p>外部配信設定の新規作成する方法を説明します。</p>
+            <ol type="1">
+            <li>「セグメント配信」＞「外部配信設定」＞「新規作成」の順でクリックしてください。 <img src='./images/distribution/DISTRIBUTION_manual-create-servey_1.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="2" type="1">
+            <li>「配信名」、「帳票」、「有効」を選択・記入してください。
+            <ul>
+            <li>「帳票」はプルダウン形式で選択できます。 <img src='./images/distribution/DISTRIBUTION_manual-create-servey_2.png' style='border:solid 2px lightgray' /></li>
+            </ul></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>「配信条件」を設定してください。
+            <ul>
+            <li>プルダウン形式で選択できます。</li>
+            </ul>
+            <img src='./images/distribution/DISTRIBUTION_manual-create-servey_3.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>「保存」をクリックしていただけると外部配信設定が新規作成されます。 <img src='./images/distribution/DISTRIBUTION_manual-create-servey_4.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTkwNjUwODM5NiwtNTE4MzA5OTc4LDE0Nj
+            Q1NTQwMzYsNTgxNDEzNjMxLC0zNTAxMzkzMDAsNTQyMjU5MDks
+            MTc1OTU3OTgyOCwyMDEwNzM3ODQ1LDIzMDMxNTc0MV19
+            -->
+            <h3 id="受信設定画面作成">受信設定画面作成</h3>
+            <p>受信設定画面を作成する方法を説明します。</p>
+            <ol type="1">
+            <li>「セグメント配信」＞「受信設定画面作成」の順でクリックしてください。 <img src='./images/distribution/DISTRIBUTION_manual-create-servey_1.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="2" type="1">
+            <li>赤い囲いの部分をクリックすると質問が追加できます。
+            <ul>
+            <li>下記アイコンから、質問の削除・コピーができます。 <img src='./images/distribution/DISTRIBUTION_manual-create-servey_2.png' style='border:solid 2px lightgray' /></li>
+            </ul></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>タイトル、質問形式、質問内容を記入してください。
+            <ul>
+            <li>質問形式はプルダウン形式で選択できます。</li>
+            <li>右側のプレビューで携帯画面イメージを確認できます。</li>
+            </ul>
+            <img src='./images/distribution/DISTRIBUTION_manual-create-servey_3.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>「帳票登録」をクリックしていただけると受信設定画面が設定されます。 <img src='./images/distribution/DISTRIBUTION_manual-create-servey_4.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTUxODMwOTk3OCwxNDY0NTU0MDM2LDU4MT
+            QxMzYzMSwtMzUwMTM5MzAwLDU0MjI1OTA5LDE3NTk1Nzk4Mjgs
+            MjAxMDczNzg0NSwyMzAzMTU3NDFdfQ==
+            -->
+            <h3 id="外部配信設定抽出条件">外部配信設定(抽出条件)</h3>
+            <p>外部配信設定の抽出条件を設定する方法を説明します。</p>
+            <ol type="1">
+            <li>「セグメント配信」＞「外部配信設定」の順でクリックし、抽出条件を設定したい帳票を選択し「設定」をクリックしてください。 <img src='./images/distribution/DISTRIBUTION_manual-extraction_1.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="2" type="1">
+            <li>「抽出条件」をクリックしてください。 <img src='./images/distribution/DISTRIBUTION_manual-extraction_2.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>「サブジェクト抽出条件」、「本文抽出条件」を記入してください。
+            <ul>
+            <li>「テスト」に記入後、「チェック」をクリックしていただけると抽出できているかチェックができます。</li>
+            </ul>
+            <img src='./images/distribution/DISTRIBUTION_manual-extraction_3.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>「保存」をクリックしていただけると抽出条件が設定されます。 <img src='./images/distribution/DISTRIBUTION_manual-extraction_4.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbMTI5MTMwMzk2MSwxMjkxMzAzOTYxLC0xMD
+            QyNDM1NzksMTI1MDUxMjE1MSwtMTYwMjMwNTcwOSwtNDQ3NTQ4
+            MjYyLC0xODEzNDAzMTg0LC01MjAxOTIzOTgsLTE0NzA5ODAxMj
+            gsMjc1NjgxNTQxLC0xMTg1Mjg3NjYwLDQzNzMwNDE5NSwtMzAx
+            MjQyMzg1LC03NTQxNjA4MzZdfQ==
+            -->
+            <h3 id="外部配信設定本文変更条件">外部配信設定(本文変更条件)</h3>
+            <p>外部配信設定の本文変更条件を設定する方法を説明します。</p>
+            <ol type="1">
+            <li>「セグメント配信」＞「外部配信設定」の順でクリックし、本文変更条件を設定したい帳票を選択し「設定」をクリックしてください。 <img src='./images/distribution/DISTRIBUTION_manual-revise_1.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="2" type="1">
+            <li>「本文変更条件」をクリックしてください。 <img src='./images/distribution/DISTRIBUTION_manual-revise_2.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>「本文変更条件」に正規表現を記入してください。</li>
+            </ol>
+            <ul>
+            <li>例として下5行を消す正規表現を記入しています。
+            <ul>
+            <li>「テスト」に記入後、「変更」をクリックしていただけると本文が変更できているかチェックができます。</li>
+            </ul></li>
+            </ul>
+            <p><img src='./images/distribution/DISTRIBUTION_manual-revise_3.png' style='border:solid 2px lightgray' /></p>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>「保存」をクリックしていただけると本文変更条件が設定されます。 <img src='./images/distribution/DISTRIBUTION_manual-revise_4.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTM5NTg4NjQ1OSwtMTY0Njk1Mjk0MCw4MD
+            k4ODEwMzEsMTgxNDI5NzYxNSwzMTM5NDgxMDQsLTEwNDI0MzU3
+            OSwxMjUwNTEyMTUxLC0xNjAyMzA1NzA5LC00NDc1NDgyNjIsLT
+            E4MTM0MDMxODQsLTUyMDE5MjM5OCwtMTQ3MDk4MDEyOCwyNzU2
+            ODE1NDEsLTExODUyODc2NjAsNDM3MzA0MTk1LC0zMDEyNDIzOD
+            UsLTc1NDE2MDgzNl19
+            -->
+            <h2 id="帳票作成">帳票作成</h2>
+            <p><!-- 目次メインメニュー（HOME、セグメント配信 など） --></p>
+            <h3 id="帳票一覧">帳票一覧 <!-- 目次サブメニュー --></h3>
+            <p>作成した帳票一覧を見る方法を説明します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>「帳票作成」をクリックすると、作成した帳票の数が分かります。またフィルタ検索や並び替えで帳票を検索することが可能です。 <img src='./images/survey/SURVEY_list_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTEzMjI4NzMzMzEsNDE5OTU4MjEsMjEwMD
+            Q1NDg5NiwtMTg3Mjg5NjcwNSwtNzEzNTcyMTcwXX0=
+            -->
+            <!-- 目次メインメニュー（HOME、セグメント配信 など） -->
+            <h3 id="新しい帳票を作成">新しい帳票を作成<!-- 目次サブメニュー --></h3>
+            <p>入力フォームの新規作成について記します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>「帳票作成」＞「新しいフォームの作成」＞「空白」をクリックすると、空の入力フォームを生成します。</li>
+            </ol>
+            <p><img src='./images/survey/SURVEY_create-new_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></p>
+            <p><br> <!-- 改行 --></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>記入項目を埋めていきます。</li>
+            </ol>
+            <ul>
+            <li><p>アンケートのタイトルとアンケートの説明を記入します。</p></li>
+            <li><p>質問内容を記入します。</p></li>
+            <li><p>記述式、ラジオボタン、チェックボックス、プルダウンの選択が可能です。</p>
+            <p><img src='./images/survey/SURVEY_create-new_2.png' style='border:solid 2px lightgray' /></p></li>
+            </ul>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li><p>「質問を追加」で質問を追加することができます。</p>
+            <p><img src='./images/survey/SURVEY_create-new_3.png' style='border:solid 2px lightgray' /></p></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li><p>「プレビュー」をクリックすると携帯画面でのイメージを確認することができます。</p>
+            <p><img src='./images/survey/SURVEY_create-new_4.png' style='border:solid 2px lightgray' /></p></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTYzMTg4NzYxMCwxODA2NTgzNzYsLTE5Mj
+            Y0MjMzNTksMTQ0NjY1MTc5OSwxNzc4MTMyODg3LC0xNDg1MTIy
+            MjU3LC0xNzY2NjgwMTQ2LDE3MzM4OTQyNTYsMTY5MjgyNzc3Mi
+            wtNjgzMTEyMDc4LDc5Mjg3NjE0MywtMTAzNDAwODM0OCw5NDY3
+            NjcxNjYsNzk1NTQ5NjgxLC0xODcyODk2NzA1LC03MTM1NzIxNz
+            BdfQ==
+            -->
+            <!-- 目次メインメニュー（HOME、セグメント配信 など） -->
+            <h3 id="新しい帳票を作成配信設定">新しい帳票を作成(配信設定) <!-- 目次サブメニュー --></h3>
+            <p>配信設定やご連絡フォームなどテンプレートを用意しています。サンプルで入力されている内容を編集して利用が可能です。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>「帳票作成」＞「配信設定」の順にクリックすると、メールマガジン配信設定が可能になります。 <img src='./images/survey/SURVEY_create-mail-magazine_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>情報区分を編集できます。 <img src='./images/survey/SURVEY_create-mail-magazine_2.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>地区選択・年代・性別を編集できます。 <img src='./images/survey/SURVEY_create-mail-magazine_3.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>最後に帳票登録をクリックします。 <img src='./images/survey/SURVEY_create-mail-magazine_4.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTEyNjk0OTI4NDQsNjExMDUwMDk4LDQ4Mz
+            YwMDI0Niw0MzkyNzA3OSwxMjk3NTk3OTkxLC05ODU0NTU2MTIs
+            ODE2ODUyMzgwLDE0MTAwOTY4MjgsLTk5NTk4NzI1NiwtMTg3Mj
+            g5NjcwNSwtNzEzNTcyMTcwXX0=
+            -->
+            <!-- 目次メインメニュー（HOME、セグメント配信 など） -->
+            <h3 id="新しい帳票を作成ご連絡フォーム">新しい帳票を作成(ご連絡フォーム)<!-- 目次サブメニュー --></h3>
+            <p>テンプレートを利用したご連絡フォームの作成について説明します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>「帳票作成」＞「ご連絡フォーム」の順にクリックすると、ご連絡フォームのテンプレートが表示されます。 <img src='./images/survey/SURVEY_create-contact-form_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>タイトル・説明文を編集することができます。</li>
+            </ol>
+            <ul>
+            <li>記述式・ラジオボタン・チェックボックスなど選択できます。 <img src='./images/survey/SURVEY_create-contact-form_2.png' style='border:solid 2px lightgray' /></li>
+            </ul>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>名(ファーストネーム)・名前・メールアドレス・電話・メッセージをテンプレートとしてご用意しています。</li>
+            </ol>
+            <ul>
+            <li>それぞれ内容の編集・削除が可能です。</li>
+            <li>必須項目への設定が可能です。 <img src='./images/survey/SURVEY_create-contact-form_3.png' style='border:solid 2px lightgray' /></li>
+            </ul>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>「プレビュー」をクリックすると、携帯画面のイメージを見ることができます。 <img src='./images/survey/SURVEY_create-contact-form_4.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbNzY4NzI3ODI2LC0xNjc1OTYyMzMwLDMyNT
+            U5ODk2NCwxNDkyNTQ2MDczLC0xNjAxMTIzOTM0LDEwNDEzNjI5
+            OTUsMzM5MjQ5OTE3LDE2NjI0ODI5MjcsLTEyMDYwNzY1MzMsMT
+            gxOTI1ODk1OSw4MjYwMTY0NDUsLTE4NzI4OTY3MDUsLTcxMzU3
+            MjE3MF19
+            -->
+            <!-- 目次メインメニュー（HOME、セグメント配信 など） -->
+            <h3 id="新しい帳票を作成調査">新しい帳票を作成(調査) <!-- 目次サブメニュー --></h3>
+            <p>テンプレートを利用した調査フォームの作成について説明します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>「帳票作成」＞「調査」の順にクリックすると、調査フォームのテンプレートが表示されます。 <img src='./images/survey/SURVEY_create-survey_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>タイトル・内容の編集ができます。</li>
+            </ol>
+            <ul>
+            <li>記述式・ラジオボタン・チェックボックスなど選択できます。 <img src='./images/survey/SURVEY_create-survey_2.png' style='border:solid 2px lightgray' /></li>
+            </ul>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <p>3.「居住形態」をクリックすると内容の編集が可能です。</p>
+            <ul>
+            <li>タイトルの編集ができます。</li>
+            <li>選択肢の追加が可能です。</li>
+            <li>選択肢の削除が可能です。 <img src='./images/survey/SURVEY_create-survey_3.png' style='border:solid 2px lightgray' /></li>
+            </ul>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <p>4.「ご意見・ご要望」をクリックすると内容の編集が可能です。</p>
+            <ul>
+            <li>タイトルの編集が可能です。</li>
+            <li>説明文の編集が可能です。</li>
+            <li>最後にページ上の「帳票登録」をクリックします。 <img src='./images/survey/SURVEY_create-survey_4.png' style='border:solid 2px lightgray' /></li>
+            </ul>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbMTQ4NzMzMDM3MSwtMTg1Mjc5NTM4OSwxNT
+            MxNjExMTEsLTcwNTgyMjUyMiwzNjYwNzc3MSwtMTg3Mjg5Njcw
+            NSwtNzEzNTcyMTcwXX0=
+            -->
+            <!-- 目次メインメニュー（HOME、セグメント配信 など） -->
+            <h3 id="編集">編集 <!-- 目次サブメニュー --></h3>
+            <p>作成したアンケートの編集方法、使用済みアンケートの処理方法について説明します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>「帳票作成」をクリックし、編集したいアンケートを選択します。 <img src='./images/survey/SURVEY_update_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>帳票編集モードになっていますので、内容を編集し最後に「帳票更新」をクリックします。 <img src='./images/survey/SURVEY_update_2.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>使わなくなった帳票は、各アンケートの一番右にある点をクリックし「無効にする」を選択します。 <img src='./images/survey/SURVEY_update_3.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbNjYwMDQwOTkxLDc3MTEwMTAyNCwxNTU1Nz
+            gxNjQwLC02NTUwMzcyNzcsNzc4ODkxODAyLC0xODcyODk2NzA1
+            LC03MTM1NzIxNzBdfQ==
+            -->
+            <!-- 目次メインメニュー（HOME、セグメント配信 など） -->
+            <h3 id="liffwebを開く">LIFF・webを開く<!-- 目次サブメニュー --></h3>
+            <p>LIFF・webを開く方法を説明します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>「帳票作成」から、各アンケートの一番右にある点をクリックし「LIFF・WEBを開く」を選択します。 <img src='./images/survey/SURVEY_LIFF_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>LINEのログイン画面にうつるのでログインします。 ※2回目以降はログインの必要はありません。 <img src='./images/survey/SURVEY_LIFF_2.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>Web上でLIFFの画面を確認することができます。 <img src='./images/survey/SURVEY_LIFF_3.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbMTk3NTEwMzE1MCw0MTY3MTgxNTUsMTMzOD
+            I5MjUxOCwtMTg3Mjg5NjcwNSwtNzEzNTcyMTcwXX0=
+            -->
+            <h2 id="シナリオ設定">シナリオ設定</h2>
+            <p><!-- 目次メインメニュー --></p>
+            <h3 id="top画面">TOP画面 <!-- 目次サブメニュー --></h3>
+            <p>メインメニュー「シナリオ設定」をクリックし、本番、ボックスのシナリオを設定します。 ※実際のシナリオや画面を作成するには、別ツール「LINE Bot Designer」で作成します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>本番環境のシナリオ設定箇所になります。</li>
+            </ol>
+            <ul>
+            <li><p>有効バージョン：現在の有効バージョン情報が表示されます。</p></li>
+            <li><p>バージョン：プルダウンから反映したバージョンを選択します。</p></li>
+            <li><p>有効にする：バージョン変更後、クリックすると選択したバージョンが有効になります。</p></li>
+            <li><p>全体構成：クリックすると、シナリオ全体構成が表示されます。詳細は「3.」を参照ください。</p></li>
+            <li><p>エクスポート(LBD形式)：クリックするとシナリオデータ(LBDファイル)をダウンロードします。</p>
+            <p><img src='./images/scenario/SCENARIO_top_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></p></li>
+            </ul>
+            <p><br> <!-- 改行 --></p>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>サンドボックスは、テスト環境のシナリオ設定箇所になります。テスト環境でシナリオデータをインポートして、動作確認をした後に本番環境で有効にします。</li>
+            </ol>
+            <ul>
+            <li><p>有効バージョン：現在の有効バージョン情報が表示されます。</p></li>
+            <li><p>バージョン：プルダウンから反映したバージョンを選択します。</p></li>
+            <li><p>有効にする：バージョン変更後、クリックすると選択したバージョンが有効になります。</p></li>
+            <li><p>全体構成：クリックすると、シナリオ全体構成が表示されます。詳細は「3.」を参照ください。</p></li>
+            <li><p>エクスポート(LBD形式)：クリックするとシナリオデータ(LBDファイル)をダウンロードします。</p></li>
+            <li><p>編集：クリックすると編集画面が開きます。詳細は別途、編集の章を参照ください。</p></li>
+            <li><p>インポート：クリックするとインポート画面が表示されます。詳細は「4.」を参照ください。</p></li>
+            <li><p>削除：選択されているシナリオデータを削除します。</p>
+            <p><img src='./images/scenario/SCENARIO_top_2.png' style='border:solid 2px lightgray' /></p></li>
+            </ul>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>「全体構成」をクリックすると全体構成の画面が表示されます。</li>
+            </ol>
+            <ul>
+            <li><p>「✕」ボタンで画面を閉じます。</p>
+            <p><img src='./images/scenario/SCENARIO_top_3.png' style='border:solid 2px lightgray' /></p></li>
+            </ul>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>「インポート」をクリックするとインポート画面が表示されます。</li>
+            </ol>
+            <ul>
+            <li><p>クリップボタン：でインポートしたいシナリオデータ(LBDファイル)を選択します。</p></li>
+            <li><p>シナリオ：選択したシナリオデータのシナリオ名が表示されます。</p></li>
+            <li><p>バージョン：選択したシナリオのバージョン情報が表示されます。</p></li>
+            <li><p>有効にする：有効にする場合はチェックを付けます。</p></li>
+            <li><p>OKボタン：シナリオデータがインポートされます。</p></li>
+            <li><p>キャンセルボタン：インポート処理をキャンセルして閉じます。</p>
+            <p><img src='./images/scenario/SCENARIO_top_4.png' style='border:solid 2px lightgray' /></p></li>
+            </ul>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbMTU4NzI3NDEwMiw1ODYxMjc3ODAsLTQ2Nj
+            I5MjYyMiwxNDkyNTA3NzcxLDY4MjU3Mzg0OSwxNzA3NjgzMTA2
+            LC02MzUyMDIxMzYsMjEwODg4OTg1OSwyMDE4OTU1MzQ2LDE5MT
+            AyNjc5NDksLTE0MjUxMDQwNDIsMTg4MjQwNjA5MiwtMTUxNjg4
+            NTYzMCw3Mzc3MTczMTgsMTU0Nzc5MTYyLDc2MDQ1NzA2LDEzND
+            I1NzYzMzcsMjA4MzkxMjQwOSwtNzEzNTcyMTcwXX0=
+            -->
+            <!-- 目次メインメニュー -->
+            <h3 id="編集ゴミ分別">編集(ゴミ分別) <!-- 目次サブメニュー --></h3>
+            <p>TOP画面から「編集」をクリックすると編集画面が表示されます。 ここでは、ゴミ分別の編集について記載します。 ゴミ分別は基本CSVデータで管理をしてインポートにより本システムへ投入します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li><p>「トーク名」のプルダウンから「ゴミ分別」を選択します。</p>
+            <p><img src='./images/scenario/SCENARIO_update-separation_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></p></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li><p>「クリップマーク」をクリックし、CSVインポートデータを指定して、「OK」をクリックしてデータをインポートします。 「キャンセル」をクリックすると処理は中断して画面が閉じます。</p>
+            <p><img src='./images/scenario/SCENARIO_update-separation_2.png' style='border:solid 2px lightgray' /></p></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li><p>「属性編集」をクリックすると編集することができます。 編集することは可能ですが、内部ID（メッセージID）で管理しているため、実際はCSVデータで管理することをお勧めします。 ※CSVデータで管理する場合はこちらの編集は不要です。</p>
+            <p><img src='./images/scenario/SCENARIO_top_3.png' style='border:solid 2px lightgray' /></p></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbODAwNTE1ODAsLTEzODI4NDU1MjUsMTY2OT
+            MzNjU4MywxNjY4MzM0MzA1LDU4NjEyNzc4MCwtNDY2MjkyNjIy
+            LDE0OTI1MDc3NzEsNjgyNTczODQ5LDE3MDc2ODMxMDYsLTYzNT
+            IwMjEzNiwyMTA4ODg5ODU5LDIwMTg5NTUzNDYsMTkxMDI2Nzk0
+            OSwtMTQyNTEwNDA0MiwxODgyNDA2MDkyLC0xNTE2ODg1NjMwLD
+            czNzcxNzMxOCwxNTQ3NzkxNjIsNzYwNDU3MDYsMTM0MjU3NjMz
+            N119
+            -->
+            <!-- 目次メインメニュー -->
+            <h3 id="編集ゴミ出し">編集(ゴミ出し) <!-- 目次サブメニュー --></h3>
+            <p>TOP画面から「編集」をクリックすると編集画面が表示されます。 ここでは、ゴミ出しの編集について記載します。 ゴミ出しは基本LINE Bot Designer(LBD形式)で作成します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li><p>「トーク名」のプルダウンから「ゴミ出し」を選択します。</p>
+            <p><img src='./images/scenario/SCENARIO_update-removal_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></p></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>「属性編集」をクリックと編集することができます。「保存」をクリックすると設定が保存されます。 「キャンセル」をクリックすると処理は中断して閉じます。 各設定項目について、下記に記載します。</li>
+            </ol>
+            <ul>
+            <li><p>メッセージID：各メッセージ単位の内部IDです。</p></li>
+            <li><p>プレビュー：設定した内容がプレビューで表示されます。</p></li>
+            <li><p>名前：メッセージ名を設定します。</p></li>
+            <li><p>画像タイプ：画像あり/なしを設定します。</p></li>
+            <li><p>タイトル：タイトル名を設定します。</p></li>
+            <li><p>テキスト：本文を設定します。</p></li>
+            <li><p>アクション数：アクションの数を設定します。</p></li>
+            <li><p>アクション１，２、、：アクション数で決めた分アクション設定が可能です。</p></li>
+            <li><p>タイプ：メッセージアクション、URIアクション、ポストバックアクション、日時ピッカーアクションを選択します。</p></li>
+            <li><p>メッセージアクション(ラベル)：LINEで表示するラベル名を設定します。</p></li>
+            <li><p>メッセージアクション(テキスト)：次のアクションのテキスト名を設定します。</p></li>
+            <li><p>URIアクション(ラベル)：LINEで表示するラベル名を設定します。</p></li>
+            <li><p>URIアクション(URL)：選択したときの遷移先のURLを設定します。</p></li>
+            <li><p>ポストバックアクション(ラベル)：LINEで表示するラベル名を設定します。</p></li>
+            <li><p>ポストバックアクション(テキスト)：LINEで回答するテキスト名を設定します。</p></li>
+            <li><p>ポストバックアクション(データ)：次のアクションするデータを設定します。</p></li>
+            <li><p>日時ピッカーアクション：現バージョンでは利用できない機能となります。</p>
+            <p><img src='./images/scenario/SCENARIO_update-removal_2.png' style='border:solid 2px lightgray' /></p></li>
+            </ul>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbMTE2NDk1NzMzLC0xMTQ1NjcxNzQzLC03MD
+            Y1OTIxMDUsNzM1MTE4ODcsLTE3NzkwNTI3NzcsODAwNTE1ODAs
+            LTEzODI4NDU1MjUsMTY2OTMzNjU4MywxNjY4MzM0MzA1LDU4Nj
+            EyNzc4MCwtNDY2MjkyNjIyLDE0OTI1MDc3NzEsNjgyNTczODQ5
+            LDE3MDc2ODMxMDYsLTYzNTIwMjEzNiwyMTA4ODg5ODU5LDIwMT
+            g5NTUzNDYsMTkxMDI2Nzk0OSwtMTQyNTEwNDA0MiwxODgyNDA2
+            MDkyXX0=
+            -->
+            <!-- 目次メインメニュー -->
+            <h3 id="編集損害報告">編集(損害報告) <!-- 目次サブメニュー --></h3>
+            <p>TOP画面から「編集」をクリックすると編集画面が表示されます。 ここでは、損害報告の編集について記載します。 損害報告のシナリオは固定テンプレートのためシナリオを変更することはできません。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li><p>「トーク名」のプルダウンから「損害報告」を選択します。</p>
+            <p><img src='./images/scenario/SCENARIO_update-damage-report_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></p></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li><p>「属性編集」をクリックすると編集することができます。 タイトル、テキスト、ラベルのみ変更してください。</p>
+            <p><img src='./images/scenario/SCENARIO_update-damage-report_2.png' style='border:solid 2px lightgray' /></p></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTEwMzA4NzczOTUsODAwNTE1ODAsLTEzOD
+            I4NDU1MjUsMTY2OTMzNjU4MywxNjY4MzM0MzA1LDU4NjEyNzc4
+            MCwtNDY2MjkyNjIyLDE0OTI1MDc3NzEsNjgyNTczODQ5LDE3MD
+            c2ODMxMDYsLTYzNTIwMjEzNiwyMTA4ODg5ODU5LDIwMTg5NTUz
+            NDYsMTkxMDI2Nzk0OSwtMTQyNTEwNDA0MiwxODgyNDA2MDkyLC
+            0xNTE2ODg1NjMwLDczNzcxNzMxOCwxNTQ3NzkxNjIsNzYwNDU3
+            MDZdfQ==
+            -->
+            <!-- 目次メインメニュー -->
+            <h3 id="編集関連情報">編集(関連情報) <!-- 目次サブメニュー --></h3>
+            <p>TOP画面から「編集」をクリックすると編集画面が表示されます。 ここでは、関連情報の編集について記載します。 関連情報は基本LINE Bot Designer(LBD形式)で作成します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li><p>「トーク名」のプルダウンから「関連情報」を選択します。</p>
+            <p><img src='./images/scenario/SCENARIO_update-information_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></p></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>「属性編集」をクリックと編集することができます。「保存」をクリックすると設定が保存されます。 「キャンセル」をクリックすると処理は中断して閉じます。 各設定項目について、下記に記載します。</li>
+            </ol>
+            <ul>
+            <li><p>メッセージID：各メッセージ単位の内部IDです。</p></li>
+            <li><p>プレビュー：設定した内容がプレビューで表示されます。</p></li>
+            <li><p>名前：メッセージ名を設定します。</p></li>
+            <li><p>タイトル：タイトル名を設定します。</p></li>
+            <li><p>テキスト：本文を設定します。</p></li>
+            <li><p>列の数：カルーセルの数を指定します。</p></li>
+            <li><p>アクション数：アクションの数を設定します。</p></li>
+            <li><p>サムネイルの画像を使用する：「はい」を選択すると各カラム毎にサムネイル画像を付けます。画像を使用する場合は、全て画像を指定する必要があります。</p></li>
+            <li><p>アクション１，２、、：アクション数で決めた分アクション設定が可能です。</p></li>
+            <li><p>タイプ：メッセージアクション、URIアクション、ポストバックアクション、日時ピッカーアクションを選択します。</p></li>
+            <li><p>メッセージアクション(ラベル)：LINEで表示するラベル名を設定します。</p></li>
+            <li><p>メッセージアクション(テキスト)：次のアクションのテキスト名を設定します。</p></li>
+            <li><p>URIアクション(ラベル)：LINEで表示するラベル名を設定します。</p></li>
+            <li><p>URIアクション(URL)：選択したときの遷移先のURLを設定します。</p></li>
+            <li><p>ポストバックアクション(ラベル)：LINEで表示するラベル名を設定します。</p></li>
+            <li><p>ポストバックアクション(テキスト)：LINEで回答するテキスト名を設定します。</p></li>
+            <li><p>ポストバックアクション(データ)：次のアクションするデータを設定します。</p></li>
+            <li><p>日時ピッカーアクション：現バージョンでは利用できない機能となります。</p>
+            <p><img src='./images/scenario/SCENARIO_update-information_2.png' style='border:solid 2px lightgray' /></p></li>
+            </ul>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbMTUxNzU5MjExNiwxNDE4ODMyNyw4MDA1MT
+            U4MCwtMTM4Mjg0NTUyNSwxNjY5MzM2NTgzLDE2NjgzMzQzMDUs
+            NTg2MTI3NzgwLC00NjYyOTI2MjIsMTQ5MjUwNzc3MSw2ODI1Nz
+            M4NDksMTcwNzY4MzEwNiwtNjM1MjAyMTM2LDIxMDg4ODk4NTks
+            MjAxODk1NTM0NiwxOTEwMjY3OTQ5LC0xNDI1MTA0MDQyLDE4OD
+            I0MDYwOTIsLTE1MTY4ODU2MzAsNzM3NzE3MzE4LDE1NDc3OTE2
+            Ml19
+            -->
+            <!-- 目次メインメニュー -->
+            <h3 id="編集リンク集">編集(リンク集)<!-- 目次サブメニュー --></h3>
+            <p>TOP画面から「編集」をクリックすると編集画面が表示されます。 ここでは、リンク集の編集について記載します。 リンク集は基本LINE Bot Designer(LBD形式)で作成します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li><p>「トーク名」のプルダウンから「リンク集」を選択します。</p>
+            <p><img src='./images/scenario/SCENARIO_update-links_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></p></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>「属性編集」をクリックと編集することができます。「保存」をクリックすると設定が保存されます。 「キャンセル」をクリックすると処理は中断して閉じます。 各設定項目について、下記に記載します。</li>
+            </ol>
+            <ul>
+            <li><p>メッセージID：各メッセージ単位の内部IDです。</p></li>
+            <li><p>名前：メッセージ名を設定します。</p></li>
+            <li><p>プレビュー：設定した内容がプレビューで表示されます。</p></li>
+            <li><p>列の数：カルーセルの数を指定します。</p></li>
+            <li><p>アクション数：アクションの数を設定します。</p></li>
+            <li><p>サムネイルの画像を使用する：「はい」を選択すると各カラム毎にサムネイル画像を付けます。画像を使用する場合は、全て画像を指定する必要があります。</p></li>
+            <li><p>タイトルを使用する：「はい」を選択すると、タイトルの設定が可能になります。</p></li>
+            <li><p>カラム１，２、、：列の数で決めた分のカルーセルの設定が可能になります。</p></li>
+            <li><p>アクション１，２、、：アクション数で決めた分アクション設定が可能になります。</p></li>
+            <li><p>タイトル：タイトル名を設定します。</p></li>
+            <li><p>テキスト：本文を設定します。</p></li>
+            <li><p>タイプ：メッセージアクション、URIアクション、ポストバックアクション、日時ピッカーアクションを選択します。</p></li>
+            <li><p>メッセージアクション(ラベル)：LINEで表示するラベル名を設定します。</p></li>
+            <li><p>メッセージアクション(テキスト)：次のアクションのテキスト名を設定します。</p></li>
+            <li><p>URIアクション(ラベル)：LINEで表示するラベル名を設定します。</p></li>
+            <li><p>URIアクション(URL)：選択したときの遷移先のURLを設定します。</p></li>
+            <li><p>ポストバックアクション(ラベル)：LINEで表示するラベル名を設定します。</p></li>
+            <li><p>ポストバックアクション(テキスト)：LINEで回答するテキスト名を設定します。</p></li>
+            <li><p>ポストバックアクション(データ)：次のアクションするデータを設定します。</p></li>
+            <li><p>日時ピッカーアクション：現バージョンでは利用できない機能となります。</p>
+            <p><img src='./images/scenario/SCENARIO_update-links_2.png' style='border:solid 2px lightgray' /></p></li>
+            </ul>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbNTYxODg5MTY3LC03NDk2NDM2ODcsMTI0Nj
+            g2NzU1NSwxNTE3NTkyMTE2LDE0MTg4MzI3LDgwMDUxNTgwLC0x
+            MzgyODQ1NTI1LDE2NjkzMzY1ODMsMTY2ODMzNDMwNSw1ODYxMj
+            c3ODAsLTQ2NjI5MjYyMiwxNDkyNTA3NzcxLDY4MjU3Mzg0OSwx
+            NzA3NjgzMTA2LC02MzUyMDIxMzYsMjEwODg4OTg1OSwyMDE4OT
+            U1MzQ2LDE5MTAyNjc5NDksLTE0MjUxMDQwNDIsMTg4MjQwNjA5
+            Ml19
+            -->
+            <!-- 目次メインメニュー -->
+            <h3 id="編集ハザードマップ">編集(ハザードマップ)<!-- 目次サブメニュー --></h3>
+            <p>TOP画面から「編集」をクリックすると編集画面が表示されます。 ここでは、リンク集の編集について記載します。 ハザードマップは基本LINE Bot Designer(LBD形式)で作成します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li><p>「トーク名」のプルダウンから「ハザードマップ」を選択します。</p>
+            <p><img src='./images/scenario/SCENARIO_update-hazardmap_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></p></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>「属性編集」をクリックと編集することができます。「保存」をクリックすると設定が保存されます。 「キャンセル」をクリックすると処理は中断して閉じます。 各設定項目について、下記に記載します。</li>
+            </ol>
+            <ul>
+            <li><p>メッセージID：各メッセージ単位の内部IDです。</p></li>
+            <li><p>名前：メッセージ名を設定します。</p></li>
+            <li><p>プレビュー：設定した内容がプレビューで表示されます。</p></li>
+            <li><p>列の数：カルーセルの数を指定します。</p></li>
+            <li><p>アクション数：アクションの数を設定します。</p></li>
+            <li><p>サムネイルの画像を使用する：「はい」を選択すると各カラム毎にサムネイル画像を付けます。画像を使用する場合は、全て画像を指定する必要があります。</p></li>
+            <li><p>タイトルを使用する：「はい」を選択すると、タイトルの設定が可能になります。</p></li>
+            <li><p>カラム１，２、、：列の数で決めた分のカルーセルの設定が可能になります。</p></li>
+            <li><p>アクション１，２、、：アクション数で決めた分アクション設定が可能になります。</p></li>
+            <li><p>タイトル：タイトル名を設定します。</p></li>
+            <li><p>テキスト：本文を設定します。</p></li>
+            <li><p>タイプ：メッセージアクション、URIアクション、ポストバックアクション、日時ピッカーアクションを選択します。</p></li>
+            <li><p>メッセージアクション(ラベル)：LINEで表示するラベル名を設定します。</p></li>
+            <li><p>メッセージアクション(テキスト)：次のアクションのテキスト名を設定します。</p></li>
+            <li><p>URIアクション(ラベル)：LINEで表示するラベル名を設定します。</p></li>
+            <li><p>URIアクション(URL)：選択したときの遷移先のURLを設定します。</p></li>
+            <li><p>ポストバックアクション(ラベル)：LINEで表示するラベル名を設定します。</p></li>
+            <li><p>ポストバックアクション(テキスト)：LINEで回答するテキスト名を設定します。</p></li>
+            <li><p>ポストバックアクション(データ)：次のアクションするデータを設定します。</p></li>
+            <li><p>日時ピッカーアクション：現バージョンでは利用できない機能となります。</p>
+            <p><img src='./images/scenario/SCENARIO_update-hazardmap_2.png' style='border:solid 2px lightgray' /></p></li>
+            </ul>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTYwOTA2MTY3NSw0MjU5MTk5NDAsNTYxOD
+            g5MTY3LC03NDk2NDM2ODcsMTI0Njg2NzU1NSwxNTE3NTkyMTE2
+            LDE0MTg4MzI3LDgwMDUxNTgwLC0xMzgyODQ1NTI1LDE2NjkzMz
+            Y1ODMsMTY2ODMzNDMwNSw1ODYxMjc3ODAsLTQ2NjI5MjYyMiwx
+            NDkyNTA3NzcxLDY4MjU3Mzg0OSwxNzA3NjgzMTA2LC02MzUyMD
+            IxMzYsMjEwODg4OTg1OSwyMDE4OTU1MzQ2LDE5MTAyNjc5NDld
+            fQ==
+            -->
+            <!-- 目次メインメニュー -->
+            <h3 id="編集トークを利用する">編集(トークを利用する)<!-- 目次サブメニュー --></h3>
+            <p>TOP画面から「編集」をクリックすると編集画面が表示されます。 ここでは、特別なシナリオトークの利用方法について記載します。 特別なシナリオには損害報告、ゴミ分別があり基本的なシナリオは決まっています。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>「トークを利用する」をクリックすると、特別なシナリオトークの利用画面が表示されます。有効になっているシナリオにはチェックマークが付きます。</li>
+            </ol>
+            <ul>
+            <li><p>損害報告</p>
+            <ul>
+            <li>作成：クリックすると損害報告シナリオが作成されます。</li>
+            <li>無効にする：クリックすると損害報告シナリオが無効になります。</li>
+            <li>削除：クリックすると損害報告シナリオが削除されます。</li>
+            </ul></li>
+            <li><p>ゴミ分別</p>
+            <ul>
+            <li>作成：クリックするとゴミ分別シナリオが作成されます。</li>
+            <li>削除：クリックするとゴミ分別シナリオが削除されます。</li>
+            </ul></li>
+            <li><p>キャンセル：クリックすると特別なシナリオトークの利用画面が閉じます。</p>
+            <p><img src='./images/scenario/SCENARIO_update-talk_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></p></li>
+            </ul>
+            <p><br> <!-- 改行 --></p>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbMTI2MjY5NTEwOCwtNjA5MDYxNjc1LDQyNT
+            kxOTk0MCw1NjE4ODkxNjcsLTc0OTY0MzY4NywxMjQ2ODY3NTU1
+            LDE1MTc1OTIxMTYsMTQxODgzMjcsODAwNTE1ODAsLTEzODI4ND
+            U1MjUsMTY2OTMzNjU4MywxNjY4MzM0MzA1LDU4NjEyNzc4MCwt
+            NDY2MjkyNjIyLDE0OTI1MDc3NzEsNjgyNTczODQ5LDE3MDc2OD
+            MxMDYsLTYzNTIwMjEzNiwyMTA4ODg5ODU5LDIwMTg5NTUzNDZd
+            fQ==
+            -->
+            <!-- 目次メインメニュー -->
+            <h3 id="編集複合メッセージを追加">編集(複合メッセージを追加)<!-- 目次サブメニュー --></h3>
+            <p>TOP画面から「編集」をクリックすると編集画面が表示されます。 ここでは、複合メッセージを追加の利用方法について記載します。 各トーク名にあるデータを複合して表示することができます。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>「複合メッセージを追加」をクリックすると、複合メッセージ画面が表示されます。 メッセージは最大5つまで選択することが可能です。</li>
+            </ol>
+            <ul>
+            <li><p>名前：複合メッセージ名を入力します。</p></li>
+            <li><p>トーク名：プルダウンから選択するトーク名でメッセージを絞り込んで表示します。</p></li>
+            <li><p>各メッセージ：メッセージ一覧が表示されます。これから利用するメッセージを選択します。（最大5つまで選択可能）</p></li>
+            <li><p>追加：クリックすると設定した複合メッセージが追加されます。</p></li>
+            <li><p>キャンセル：処理を中断して、複合メッセージ画面が閉じます。</p>
+            <p><img src='./images/scenario/SCENARIO_update-composite_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></p></li>
+            </ul>
+            <p><br> <!-- 改行 --></p>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbNjE3OTUyMTU5LC0xMDUxNDQzMDAyLDEyNj
+            I2OTUxMDgsLTYwOTA2MTY3NSw0MjU5MTk5NDAsNTYxODg5MTY3
+            LC03NDk2NDM2ODcsMTI0Njg2NzU1NSwxNTE3NTkyMTE2LDE0MT
+            g4MzI3LDgwMDUxNTgwLC0xMzgyODQ1NTI1LDE2NjkzMzY1ODMs
+            MTY2ODMzNDMwNSw1ODYxMjc3ODAsLTQ2NjI5MjYyMiwxNDkyNT
+            A3NzcxLDY4MjU3Mzg0OSwxNzA3NjgzMTA2LC02MzUyMDIxMzZd
+            fQ==
+            -->
+            <h2 id="ログ">ログ</h2>
+            <p><!-- 目次メインメニュー --></p>
+            <h3 id="line友だち数情報">LINE友だち数情報 <!-- 目次サブメニュー --></h3>
+            <p>メインメニュー「ログ」から「友だち数」をクリックすると、LINE友だちの人数情報を確認できます。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>「友だち数」から「日次」を選択後、「開始日」を指定して「表示」をクリックするを日単位で友だち数のグラフが表示されます。 <img src='./images/log/LOG_LINEfriendsnum_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>「週次」を選択後、「開始日」を指定して「表示」をクリックするを週単位で友だち数のグラフが表示されます。 <img src='./images/log/LOG_LINEfriendsnum_2.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>「週次」を選択後、「開始月」を指定して「表示」をクリックするを月単位で友だち数のグラフが表示されます。 <img src='./images/log/LOG_LINEfriendsnum_3.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbMTYzMTQ4NTc2OCwyNjI0Mzk2NTksLTEyMz
+            MzNjA5ODUsMTQ1NTMyMDQwOSwxODgyNDA2MDkyLC0xNTE2ODg1
+            NjMwLDczNzcxNzMxOCwxNTQ3NzkxNjIsNzYwNDU3MDYsMTM0Mj
+            U3NjMzNywyMDgzOTEyNDA5LC03MTM1NzIxNzBdfQ==
+            -->
+            <!-- 目次メインメニュー -->
+            <h3 id="line友だち属性1">LINE友だち属性1 <!-- 目次サブメニュー --></h3>
+            <p>メインメニュー「ログ」から「友だちの属性」をクリックすると、LINEの友だちの属性情報を確認できます。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>「年齢」をクリックすると年齢別（5歳単位）のグラフが表示されます。 <img src='./images/log/LOG_LINEfriendsattr1_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>「性別」をクリックすると性別のグラフが表示されます。 <img src='./images/log/LOG_LINEfriendsattr1_2.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>「エリア」をクリックするとエリア別のグラフが表示されます。 <img src='./images/log/LOG_LINEfriendsattr1_3.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>「OS」をクリックするとOS別のグラフが表示されます。 <img src='./images/log/LOG_LINEfriendsattr1_4.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTYzNTIwMjEzNiwyMTA4ODg5ODU5LDIwMT
+            g5NTUzNDYsMTkxMDI2Nzk0OSwtMTQyNTEwNDA0MiwxODgyNDA2
+            MDkyLC0xNTE2ODg1NjMwLDczNzcxNzMxOCwxNTQ3NzkxNjIsNz
+            YwNDU3MDYsMTM0MjU3NjMzNywyMDgzOTEyNDA5LC03MTM1NzIx
+            NzBdfQ==
+            -->
+            <!-- 目次メインメニュー -->
+            <h3 id="line友だち属性2">LINE友だち属性2<!-- 目次サブメニュー --></h3>
+            <p>メインメニュー「ログ」から「友だちの属性」をクリックすると、LINEの友だちの属性情報を確認できます。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>「友だち期間」をクリックすると友だち登録している期間別のグラフが表示されます。 <img src='./images/log/LOG_LINEfriendsattr2_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <p><br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTEwODM5MjExMDQsLTYzNTIwMjEzNiwyMT
+            A4ODg5ODU5LDIwMTg5NTUzNDYsMTkxMDI2Nzk0OSwtMTQyNTEw
+            NDA0MiwxODgyNDA2MDkyLC0xNTE2ODg1NjMwLDczNzcxNzMxOC
+            wxNTQ3NzkxNjIsNzYwNDU3MDYsMTM0MjU3NjMzNywyMDgzOTEy
+            NDA5LC03MTM1NzIxNzBdfQ==
+            -->
+            <!-- 目次メインメニュー -->
+            <h3 id="リッチメニュー">リッチメニュー <!-- 目次サブメニュー --></h3>
+            <p>メインメニュー「統計」から「帳票」をクリックすると、リッチメニューの操作に関する集計情報が確認できます。</p>
+            <p>1.「リッチメニュー操作数」から「日次」を選択後、開始日を指定して「表示」をクリックすると、日単位でのリッチメニューのタップされた合計数の推移グラフが表示されます。 <img src='./images/log/LOG_LINEservey1_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --> <br> <!-- 改行 --></p>
+            <ol start="2" type="1">
+            <li>「週次」や「月次」を選択すると、グラフの集計単位を変更することができます。 <img src='./images/log/LOG_LINEservey1_2.png' style='border:solid 2px lightgray' /> <!-- 画像 --> <br></li>
+            </ol>
+            <p>3.「リッチメニューの各ボタンタップ割合」をクリックすると、リッチメニューがタップされた割合（パーセンテージ）の円グラフが表示されます。 <img src='./images/log/LOG_LINEservey1_3.png' style='border:solid 2px lightgray' /> <!-- 画像 --> <br></p>
+            <p>4.集計の開始日と終了日を指定して、集計期間を変更することができます。 <img src='./images/log/LOG_LINEservey1_4.png' style='border:solid 2px lightgray' /> <!-- 画像 --> <br></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTEwODM5MjExMDQsLTYzNTIwMjEzNiwyMT
+            A4ODg5ODU5LDIwMTg5NTUzNDYsMTkxMDI2Nzk0OSwtMTQyNTEw
+            NDA0MiwxODgyNDA2MDkyLC0xNTE2ODg1NjMwLDczNzcxNzMxOC
+            wxNTQ3NzkxNjIsNzYwNDU3MDYsMTM0MjU3NjMzNywyMDgzOTEy
+            NDA5LC03MTM1NzIxNzBdfQ==
+            -->
+            <!-- 目次メインメニュー -->
+            <h3 id="セグメント">セグメント <!-- 目次サブメニュー --></h3>
+            <p>メインメニュー「統計」から「帳票」をクリックしセグメントの項目を表示すると、帳票で登録されたセグメントに関する集計情報が確認できます。</p>
+            <p>1.「セグメント別登録者数」をクリックすると、帳票で登録されたセグメントの登録者数が、帳票ごとの積み上げグラフとして表示されます。</p>
+            <ul>
+            <li>集計の単位を「日次」「週次」「月次」で変更できます。</li>
+            <li>単位にあわせて集計の期間を変更できます。 <img src='./images/log/LOG_LINEservey2_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --> <br> <!-- 改行 --></li>
+            </ul>
+            <p>2.「セグメント別配信数」をクリックすると、セグメント配信の行われた配信数が、帳票ごとの積み上げグラフとして表示されます。</p>
+            <ul>
+            <li>集計の単位を「日次」「週次」「月次」で変更できます。</li>
+            <li>単位にあわせて集計の期間を変更できます。 <img src='./images/log/LOG_LINEservey2_2.png' style='border:solid 2px lightgray' /> <!-- 画像 --> <br> <!-- 改行 --></li>
+            </ul>
+            <p>3.「セグメント成功配信数」をクリックすると、セグメント配信の行われた配信数のうち配信に成功した数が、帳票ごとの積み上げグラフとして表示されます。</p>
+            <ul>
+            <li>集計の単位を「日次」「週次」「月次」で変更できます。</li>
+            <li>単位にあわせて集計の期間を変更できます。 <img src='./images/log/LOG_LINEservey2_3.png' style='border:solid 2px lightgray' /> <!-- 画像 --> <br> <!-- 改行 --></li>
+            </ul>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTEwODM5MjExMDQsLTYzNTIwMjEzNiwyMT
+            A4ODg5ODU5LDIwMTg5NTUzNDYsMTkxMDI2Nzk0OSwtMTQyNTEw
+            NDA0MiwxODgyNDA2MDkyLC0xNTE2ODg1NjMwLDczNzcxNzMxOC
+            wxNTQ3NzkxNjIsNzYwNDU3MDYsMTM0MjU3NjMzNywyMDgzOTEy
+            NDA5LC03MTM1NzIxNzBdfQ==
+            -->
+            <!-- 目次メインメニュー -->
+            <h3 id="帳票liff">帳票・LIFF <!-- 目次サブメニュー --></h3>
+            <p>メインメニュー「統計」から「帳票」をクリックしLIFFの項目を表示すると、帳票の表示数の集計情報が確認できます。</p>
+            <p>1.「LIFF別起動数」をクリックすると、アンケートや申請などの帳票の表示数が帳票別に表示されます。開始日と終了日を指定して、集計期間を変更できます。</p>
+            <p><img src='./images/log/LOG_LINEservey3_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --> <br> <!-- 改行 --></p>
+            <p>2.対象となる帳票のグラフをクリックすると、帳票内で選択された内訳が表示されます。</p>
+            <p><img src='./images/log/LOG_LINEservey3_2.png' style='border:solid 2px lightgray' /> <!-- 画像 --> <br> <!-- 改行 --></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTEwODM5MjExMDQsLTYzNTIwMjEzNiwyMT
+            A4ODg5ODU5LDIwMTg5NTUzNDYsMTkxMDI2Nzk0OSwtMTQyNTEw
+            NDA0MiwxODgyNDA2MDkyLC0xNTE2ODg1NjMwLDczNzcxNzMxOC
+            wxNTQ3NzkxNjIsNzYwNDU3MDYsMTM0MjU3NjMzNywyMDgzOTEy
+            NDA5LC03MTM1NzIxNzBdfQ==
+            -->
+            <h2 id="システム設定">システム設定</h2>
+            <p><!-- 目次メインメニュー --></p>
+            <h3 id="ロゴ画像">ロゴ画像 <!-- 目次サブメニュー --></h3>
+            <p>管理画面のロゴ画像の登録方法を記載します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>「システム設定」から「一般設定」をクリックします。 <img src='https://drive.google.com/uc?export=view&id=11aAiZ1LSQCYJQzt2B8q26NJjQ5MTwGhZ' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>ロゴ画像の画像箇所にマウスを移動します。 <img src='https://drive.google.com/uc?export=view&id=15QspAX6l7vOWkcrXAB21P6YDXcod67Cu' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>「ロゴ画像を選択」をクリックし画像を指定した後、縦サイズ、横サイズを指定します。 <img src='https://drive.google.com/uc?export=view&id=1n8DHg2DvgHbzPg3Fc7Y2l5N2gXIQ4ryn' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>「保存」をクリックすると、管理画面に指定したロゴ画像が表示されます。 <img src='https://drive.google.com/uc?export=view&id=1iC9QpqacMBLTf5Xj_zOu5DF4za8d3pGw' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbMTU3Mzg0NzM5LDEzNDI1NzYzMzcsMjA4Mz
+            kxMjQwOSwtNzEzNTcyMTcwXX0=
+            -->
+            <!-- 目次メインメニュー -->
+            <h3 id="メニュースタイル">メニュースタイル <!-- 目次サブメニュー --></h3>
+            <p>管理画面のメニュースタイルの設定方法を記載します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>「システム設定」から「一般設定」をクリックします。 <img src='https://drive.google.com/uc?export=view&id=1gB0PLqacD5PrU0Q32W89ySj9vO_ONnpU' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>メニュースタイルの「横並び」をクリックし、「保存」をクリックするとメニューが横に並びます。 <img src='https://drive.google.com/uc?export=view&id=1EAg3pM6xoffEsfmpv5Qixcdp5lG9jRzy' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>メニュースタイルの「縦並び」をクリックし、「保存」をクリックするとメニューが縦に並びます。 <img src='https://drive.google.com/uc?export=view&id=1XkSlIJYIsJdvDWqNnc2qkoRup0F2lq1g' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbMTYzNDYzOTQ1Miw3NjA0NTcwNiwxMzQyNT
+            c2MzM3LDIwODM5MTI0MDksLTcxMzU3MjE3MF19
+            -->
+            <!-- 目次メインメニュー -->
+            <h3 id="テナント名">テナント名 <!-- 目次サブメニュー --></h3>
+            <p>管理画面のテナント名の設定方法を記載します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>「システム設定」から「一般設定」をクリックします。 <img src='https://drive.google.com/uc?export=view&id=19PZdg2eQWmALvkxiseJ14sku8vutp-Vz' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>テナント名を入力し、「保存」をクリックします。 <img src='https://drive.google.com/uc?export=view&id=1BOraHFu5jDKzfhKZ28tP0ctm7JjGxTDi' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>入力したテナント名が表示されます。 <img src='https://drive.google.com/uc?export=view&id=1Nz61H1IPHai9WS6hYX96VOOKuIAe6c2M' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTM5NDkwODYzMCw3Mzc3MTczMTgsMTU0Nz
+            c5MTYyLDc2MDQ1NzA2LDEzNDI1NzYzMzcsMjA4MzkxMjQwOSwt
+            NzEzNTcyMTcwXX0=
+            -->
+            <!-- 目次メインメニュー -->
+            <h3 id="テーマカラー">テーマカラー <!-- 目次サブメニュー --></h3>
+            <p>管理画面の配色の設定方法を記載します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li><p>「システム設定」から「一般設定」をクリックします。「テーマカラー」項目でメニュー画面の配色を変更できます。 <img src='./images/system/SYSTEM_theme-color_1.png' style='border:solid 2px lightgray' /> <br></p></li>
+            <li><p>カラーコードの指定、またはカラーピッカーから配色を指定できます。主な変更項目は以下です。</p></li>
+            </ol>
+            <ul>
+            <li>「一次色」：ヘッダーのメニューや設定ボタン、文字色などメインとなるカラーを指定</li>
+            <li>「ヘッダーの背景色」「コンテンツの背景色」「フッターの背景色」：ページの背景色を指定 <img src='./images/system/SYSTEM_theme-color_2.png' style='border:solid 2px lightgray' /> <br>
+            <div style="page-break-before:always">
+
+            </div></li>
+            </ul>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTM5NDkwODYzMCw3Mzc3MTczMTgsMTU0Nz
+            c5MTYyLDc2MDQ1NzA2LDEzNDI1NzYzMzcsMjA4MzkxMjQwOSwt
+            NzEzNTcyMTcwXX0=
+            -->
+            <!-- 目次メインメニュー -->
+            <h3 id="line設定">LINE設定 <!-- 目次サブメニュー --></h3>
+            <p>LINE Developers で開設した Messaging API との連携設定の方法を記載します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li><p>「システム設定」から「LINE設定」をクリックします。 <img src='./images/system/SYSTEM_LINE-setting_1.png' style='border:solid 2px lightgray' /> <br></p></li>
+            <li><p>Messaging API の各種情報を登録します。本番とサンドボックスそれぞれに登録します。</p></li>
+            </ol>
+            <ul>
+            <li>「チャネルアクセストークン」：チャネル基本設定にある、チャネルアクセストークン情報を登録</li>
+            <li>「チャネルID」：Massaging API設定にある、チャネルID情報を登録</li>
+            <li>「チャネルシークレット」：チャネル基本設定にある、チャネルシークレット情報を登録</li>
+            </ul>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTM5NDkwODYzMCw3Mzc3MTczMTgsMTU0Nz
+            c5MTYyLDc2MDQ1NzA2LDEzNDI1NzYzMzcsMjA4MzkxMjQwOSwt
+            NzEzNTcyMTcwXX0=
+            -->
+            <!-- 目次メインメニュー -->
+            <h3 id="メール設定">メール設定<!-- 目次サブメニュー --></h3>
+            <p>ユーザー作成時に送信する招待メールの編集方法を記載します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li><p>「システム設定」から「メール設定」をクリックします。 <img src='./images/system/SYSTEM_mail-setting_1.png' style='border:solid 2px lightgray' /> <br></p></li>
+            <li><p>招待メールで送信される、ユーザー名と一時パスワードを通知する文面内容を編集します。初期値（英語）が設定されています。「保存」をクリックすると変更内容が確定されます。</p></li>
+            </ol>
+            <ul>
+            <li>「招待メールの件名」「招待メールのメッセージ」：送信される招待メールの件名（Subject）と本文（body）を変更します。</li>
+            <li>「{username}」：あらかじめ設定されたユーザーネームが挿入される領域です。</li>
+            <li>「{####}」：あらかじめ設定されたパスワードが挿入される領域です。</li>
+            </ul>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTM5NDkwODYzMCw3Mzc3MTczMTgsMTU0Nz
+            c5MTYyLDc2MDQ1NzA2LDEzNDI1NzYzMzcsMjA4MzkxMjQwOSwt
+            NzEzNTcyMTcwXX0=
+            -->
+            <h2 id="ユーザ設定">ユーザ設定</h2>
+            <p><!-- 目次メインメニュー --></p>
+            <h3 id="一覧とポリシー設定">一覧とポリシー設定 <!-- 目次サブメニュー --></h3>
+            <p>登録されているユーザーやグループの一覧の確認ができます。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>ユーザ一覧</li>
+            </ol>
+            <ul>
+            <li><p>メインメニュー「ユーザ設定」をクリックします。</p></li>
+            <li><p>ユーザをクリックすると、ユーザ一覧が表示され登録されているユーザ情報が一覧で表示されます。</p>
+            <p><img src='https://drive.google.com/uc?export=view&id=1stg_y4V6IOajU0rnJhF_DyfpuJ1wPu3v' style='border:solid 2px lightgray' /> <!-- 画像 --></p></li>
+            </ul>
+            <p><br> <!-- 改行 --></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>グループ一覧</li>
+            </ol>
+            <ul>
+            <li>メインメニュー「ユーザ設定」をクリックします。</li>
+            <li>グループをクリックするとグループ一覧が表示されます。 <img src='https://drive.google.com/uc?export=view&id=1uwIyfKJCPCLBlJHnjIBQ8uvrRcjKF2wl' style='border:solid 2px lightgray' /></li>
+            </ul>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>ポリシー設定</li>
+            </ol>
+            <ul>
+            <li><p>ポリシー設定をクリックします。</p></li>
+            <li><p>パスワードの最小長が設定できます。</p></li>
+            <li><p>パスワードの強度をチェックボックスで設定できます。（複数選択可）</p></li>
+            <li><p>一時パスワードの有効期限が設定できます。（日数）</p></li>
+            <li><p>保存ボタンをクリックすると、設定した内容が保存されます。</p>
+            <p><img src='https://drive.google.com/uc?export=view&id=1TufJvi8ckaFbRYpdgnO0GkWMn7LuOzm9' style='border:solid 2px lightgray' /></p></li>
+            </ul>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbMTgyMTM3MDc5MSwxNDI3MDQ4NTc2LC05MT
+            A2MTYyMzIsLTEzNzQ0NDQ1NzIsLTgxOTgwMzA3NiwtNzEzNTcy
+            MTcwXX0=
+            -->
+            <!-- 目次メインメニュー -->
+            <h3 id="ユーザ新規作成">ユーザ新規作成 <!-- 目次サブメニュー --></h3>
+            <p>ユーザの作成方法を記載します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li><p>メインメニュー「ユーザ設定」から「新規作成」をクリックします。</p>
+            <p><img src='https://drive.google.com/uc?export=view&id=16C1uWsjxS8GU5KGswSEqoXN7bzz8Xtaz' style='border:solid 2px lightgray' /> <!-- 画像 --></p></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>ユーザを新規作成します。</li>
+            </ol>
+            <ul>
+            <li><p>ユーザ名を入力します。</p></li>
+            <li><p>一時パスワードを入力します。</p></li>
+            <li><p>メールアドレスを入力します。（こちらのアドレスに招待メールが届きます）</p></li>
+            <li><p>グループを選択します。</p></li>
+            <li><p>招待メールを送る場合は、「はい」を選択します。</p>
+            <p><img src='https://drive.google.com/uc?export=view&id=1_iOr2kkKXSCvoMtUX_kT6h78q3LYaSVG' style='border:solid 2px lightgray' /></p></li>
+            </ul>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTE2NDM4NjY2NDksMTkzMDgwOTMxNSw3MD
+            Y5MzkyMTcsMTY0MzkwODg2OCwtOTAzNTk4NDk5LC0xNDM0Mjkx
+            MDQ2LDY1NTk4NjQ2NSwxNDAzNjY4NjYsLTkxMDYxNjIzMiwtMT
+            M3NDQ0NDU3MiwtODE5ODAzMDc2LC03MTM1NzIxNzBdfQ==
+            -->
+            <!-- 目次メインメニュー（HOME、セグメント配信 など） -->
+            <h3 id="ユーザ情報変更-パスワード権限">ユーザ情報変更 (パスワード・権限)<!-- 目次サブメニュー --></h3>
+            <p>ユーザー情報を変更したい場合は、下記手順で変更が可能です。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>「ユーザ情報」をクリックし、変更したいユーザー名を選択します。 <img src='./images/users/USERS_user-update_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>「パスワードリセット」を選択するとパスワードの変更ができます。 <img src='./images/users/USERS_user-update_2.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>「グループに追加する」を選択すると、ユーザーをどのグループに追加するか選ぶことができます。 <img src='./images/users/USERS_user-update_3.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbODQ1ODI4OTE2LC0xNjc1MzI0OTE4LDE3OT
+            g4MzkwNTEsMTk3NTczNjcyMSwtMjA4MjUyNzc0NCwyODk0NzYz
+            NTQsLTI1NTIxNzAwNiwtMTg3Mjg5NjcwNSwtNzEzNTcyMTcwXX
+            0=
+            -->
+            <!-- 目次メインメニュー（HOME、セグメント配信 など） -->
+            <h3 id="ユーザ削除">ユーザ削除 <!-- 目次サブメニュー --></h3>
+            <p>ユーザー情報を削除する際の手順を記載します。 <!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>「ユーザ設定」をクリックした後、 削除したいユーザーを選択します。 <img src='./images/users/USERS_user-delete_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>削除したいユーザーの詳細情報が表示されるので、画面右上の「ユーザ削除」をクリックします。 <img src='./images/users/USERS_user-delete_2.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbMTc0NzExNzE1MiwtODEwMzg0NTQ2LC0zNj
+            g2MDQzNzIsLTk4NzU5ODQ1NiwtMTc4MzUyNDE5NywtODE5NTM1
+            NjAxLC0xODcyODk2NzA1LC03MTM1NzIxNzBdfQ==
+            -->
+            <!-- 目次メインメニュー（HOME、セグメント配信 など） -->
+            <h3 id="グループ編集">グループ編集 <!-- 目次サブメニュー --></h3>
+            <p>adminsとmembersでグループ編集をすることが可能です。必要な権限範囲に応じてグループを使い分けることがきます。adminsはすべての機能に、membersはHOME・セグメント配信・帳票作成・ログ機能に対して権限があります。<!-- 最初に何の説明をするのか明記 --></p>
+            <ol type="1">
+            <li>「ユーザ設定」＞「グループ」をクリックします。 <img src='./images/users/USERS_group-update_1.png' style='border:solid 2px lightgray' /> <!-- 画像 --></li>
+            </ol>
+            <p><br> <!-- 改行 --></p>
+            <div style="page-break-before:always">
+
+            </div>
+            <p><!-- 強制的に改ページ --></p>
+            <ol start="2" type="1">
+            <li>編集したいグループを選びます。 <img src='./images/users/USERS_group-update_2.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>「ユーザを追加する」をクリックします。 <img src='./images/users/USERS_group-update_3.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>追加したいユーザーをクリックします。 <img src='./images/users/USERS_group-update_4.png' style='border:solid 2px lightgray' /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <!--stackedit_data:
+            eyJoaXN0b3J5IjpbLTE4NjM1ODE3NDAsLTE2NjM5NDk1MDYsLT
+            IzOTM4MzIyMiwxMjA5ODAwMzUzLDI2MDI4NDMxNywtMjA3MTc0
+            NDg4OCw3OTU1NzI4ODksLTU4ODc4MTUyMiwtMTg3Mjg5NjcwNS
+            wtNzEzNTcyMTcwXX0=
+            -->
+            <h2 id="aws設定">AWS設定</h2>
+            <h3 id="dns_domain_liff_certificate_id-の設定">DNS_DOMAIN_LIFF_CERTIFICATE_ID の設定</h3>
+            <p>Amazon Certificate Manager(以下、ACM)を使って証明書を発酵する方法です。</p>
+            <ol type="1">
+            <li>システム設定 から “DNS_DOMAIN” の値を確認します。
+            <ul>
+            <li>未設定の場合は<a href="https://github.com/linefukuoka/line-smart-city/blob/main/docs/DEVELOPERS.md">開発者向け情報</a>から設定します。 <img src="./images/aws/AWS_22-11-36.png" /></li>
+            </ul></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="2" type="1">
+            <li>リージョンを <strong>バージニア州北部</strong> を選択した上でACMを開き「証明書のリクエスト」をクリックします。 <img src="./images/aws/AWS_22-38-34.png" /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>「パブリック証明書のリクエスト」を選択し、証明書をリクエストし、ドメイン名を設定します。
+            <ul>
+            <li><strong>*.(環境名).(DNS_DOMAINで設定した値)</strong> を設定します。 <img src="./images/aws/AWS_22-43-27.png" /></li>
+            </ul></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>検証方法の選択を選択(必要に応じてタグを追加)、「確認とリクエスト」をクリックします。
+            <ul>
+            <li>検証後に発行される証明書の識別子を <strong>DNS_DOMAIN_LIFF_CERTIFICATE_ID</strong> として設定します。 <img src="./images/aws/AWS_22-47-59.png" /></li>
+            </ul></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <h3 id="dns_domain_liff_hosted_zone_id-の設定">DNS_DOMAIN_LIFF_HOSTED_ZONE_ID の設定</h3>
+            <ol type="1">
+            <li>システム設定 から <strong>DNS_DOMAIN</strong> の値を確認します。
+            <ul>
+            <li>未設定の場合は<a href="https://github.com/linefukuoka/line-smart-city/blob/main/docs/DEVELOPERS.md">開発者向け情報</a>から設定してください。 <img src="./images/aws/AWS_22-11-36.png" /></li>
+            </ul></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="2" type="1">
+            <li>AWSコンソールから「Amazon Route53」&gt; 「ホストゾーンの作成」を開きます。 <img src="./images/aws/AWS_22-18-20.png" /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>ドメイン名として(環境名).(DNS_DOMAINで設定したドメイン名)を設定します。 <img src="./images/aws/AWS_22-22-02.png" /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>作成されたホストゾーンIDを管理画面の <strong>DNS_DOMAIN_LIFF_HOSTED_ZONE_ID</strong> として設定します。 <img src="./images/aws/AWS_22-18-19.png" /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <h3 id="cognitoユーザプールliffの確認">Cognitoユーザプール(LIFF)の確認</h3>
+            <p>AWS Cognitoで管理される管理画面のユーザについて記します。</p>
+            <ol type="1">
+            <li>「ユーザープールの管理」＞<code>(環境名)-liff-users</code> が記されたユーザープールを選択します。 <img src="./images/aws/AWS_00-10-35.png" /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="2" type="1">
+            <li>「IDプロバイダー」&gt;「OpenID Connect」をクリックし、さらに最下部に表示される「プロバイダー Line」の編集のマークをクリックします。 <img src="./images/aws/AWS_00-27-40.png" /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>クライアントIDにLINEログインのチャネルID、クライアントシークレットにLINEログインのチャネルシークレットが設定されていることを確認できます。 <img src="./images/aws/AWS_00-29-20.png" /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>アプリクライアントの設定で以下設定を確認します。
+            <ul>
+            <li>有効なIDプロバイダが <strong>Line</strong> となっていること</li>
+            <li>コールバックURLが <code>https://LIFFのドメイン/login</code> になっていること</li>
+            <li>サインアウトURLが <code>https://LIFFのドメイン</code> になっていること <img src="./images/aws/AWS_00-32-30.png" /></li>
+            </ul></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <h3 id="cognitoユーザプール管理画面">Cognitoユーザプール(管理画面)</h3>
+            <p>AWS Cognitoで管理される管理画面のユーザについて記します。</p>
+            <ol type="1">
+            <li>ユーザープールの管理を選択します。 <img src="./images/aws/AWS_00-08-00.png" /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="2" type="1">
+            <li>環境名が記されたユーザープールを選択します。 <img src="./images/aws/AWS_00-10-35.png" /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>環境構築時および管理画面で作成されたユーザ・グループを確認できます。 <img src="./images/aws/AWS_00-12-33.png" /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>パスワードポリシーの変更ができます。
+            <ul>
+            <li>変更される場合の最小長は8文字以上としてください。</li>
+            <li>管理画面上には設定変更後のパスワードポリシーは表示されません。 <img src="./images/aws/AWS_00-14-50.png" /></li>
+            </ul></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <h3 id="ip-アドレス制限">IP アドレス制限</h3>
+            <p>AWS WAF の設定により IP アドレス制限ができます。</p>
+            <ol type="1">
+            <li><p>アクセス対象とする IP アドレスを IP address に入力します。</p>
+            <ul>
+            <li>Region として Global(CloudFront)を選択します。</li>
+            <li>IPv4 または IPv6 の選択はアクセス対象とする環境により異なります。 <img src='./images/aws/AWS_ip-address-restriction-1.png' style='border:solid 2px lightgray'></li>
+            </ul></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol type="1">
+            <li>Web ACLs をクリックします。
+            <ul>
+            <li>「Global(CloudFront)」が選択されていることを確認します。</li>
+            <li>「Create web ACL」をクリックします。 <img src='./images/aws/AWS_ip-address-restriction-2.png' style='border:solid 2px lightgray'></li>
+            </ul></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li><p>プルダウンメニューから Add my own rules and rule groups を選択します。</p>
+            <ul>
+            <li>条件にマッチしない場合に許可させないため「Block」をクリックします。</li>
+            </ul>
+            <p><img src='./images/aws/AWS_ip-address-restriction-3.png' style='border:solid 2px lightgray'></p></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="4" type="1">
+            <li>Rule type から IP set を選択します。 <img src='./images/aws/AWS_ip-address-restriction-4.png' style='border:solid 2px lightgray'></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <h3 id="セグメント配信の受信メールアドレス設定">セグメント配信の受信メールアドレス設定</h3>
+            <p>環境構築のコマンド実施後に Amazon SES （以下、「SES」）、Amazon SNS （以下、「SNS」）の設定を実施してください。</p>
+            <ol type="1">
+            <li>リージョンとして us-west-2(オレゴン)を選択します。 <img src="./images/aws/AWS_19-39-54.png" /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="2" type="1">
+            <li>セグメント配信の受信に使用するメールアドレスを SES 設定します。 <img src="./images/aws/AWS_reminder-mail-setting-2.png" /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            <ol start="3" type="1">
+            <li>SES と連携する SNS を開き、SNS トピック設定がなされていることを確認してください。 <img src="./images/aws/AWS_19-47-39.png" /></li>
+            </ol>
+            <br>
+            <div style="page-break-before:always">
+
+            </div>
+            </div>
+  </div>
+
+  <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
+
+</body>
+</html>
