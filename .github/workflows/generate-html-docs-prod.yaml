@@ -60,23 +60,37 @@ jobs:
           pandoc -s --toc --template=./docs/template/bootstrap_menu.html -c css/custom-style.css tmp/index.md -o docs/index.html --metadata title="LINE Smart City" --variable=logo:"img/GovTech_top.png"
           cp -r tmp/images docs/
           rm -rf tmp
-      - name: Copy file to lfk
+      - name: Check if data has changed
+        id: if_changed
+        run: if [[ `git status --porcelain` ]]; then echo "::set-output name=result::true"; else echo "::set-output name=result::false"; fi
+      - name: Push if data has changed
+        if: steps.if_changed.outputs.result == 'true'
         run: |
-          cd docs
-          yes | cp -r css ../lfk/docs/
-          yes | cp -r img ../lfk/docs/
-          yes | cp -r images ../lfk/docs/
-          yes | cp -r js ../lfk/docs/
-          yes | cp -r template ../lfk/docs/
-          yes | cp  index.html ../lfk/docs/
-      - name: Pushes to another repository
-        id: push_directory
-        uses: cpina/github-action-push-to-another-repository@master
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.JUNSH_PAT }}
-        with:
-          source-directory: 'lfk'
-          destination-github-username: 'linefukuoka'
-          destination-repository-name: 'line-smart-city-docs'
-          user-email: linh.nguyen@playnext-lab.co.jp
-          target-branch: main
+          git config --global user.email "you@example.com"
+          git config --global user.name "makehtml-docs.yaml"
+          git add -A
+          git commit -m "make html document at $(date +"%Y%m%d_%H%M")"
+          git push origin master
+      - name: Else gracefully stop
+        if: steps.if_changed.outputs.result == 'false'
+        run: echo "Nothing changed, job stops gracefully."
+      # - name: Copy file to lfk
+      #   run: |
+      #     cd docs
+      #     yes | cp -r css ../lfk/docs/
+      #     yes | cp -r img ../lfk/docs/
+      #     yes | cp -r images ../lfk/docs/
+      #     yes | cp -r js ../lfk/docs/
+      #     yes | cp -r template ../lfk/docs/
+      #     yes | cp  index.html ../lfk/docs/
+      # - name: Pushes to another repository
+      #   id: push_directory
+      #   uses: cpina/github-action-push-to-another-repository@master
+      #   env:
+      #     API_TOKEN_GITHUB: ${{ secrets.JUNSH_PAT }}
+      #   with:
+      #     source-directory: 'lfk'
+      #     destination-github-username: 'linefukuoka'
+      #     destination-repository-name: 'line-smart-city-docs'
+      #     user-email: linh.nguyen@playnext-lab.co.jp
+      #     target-branch: main
