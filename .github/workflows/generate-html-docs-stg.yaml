@@ -40,7 +40,7 @@ jobs:
           DECRYPT_PASSPHRASE: ${{ secrets.RCLONE_PASS }}
       - name: Download google drive file
         run: |
-          rclone --drive-shared-with-me copy gdrive:/docs-linh ./tmp
+          rclone --drive-shared-with-me copy gdrive:/docs ./tmp
       - name: Generate index.md
         run: |
           cd tmp
